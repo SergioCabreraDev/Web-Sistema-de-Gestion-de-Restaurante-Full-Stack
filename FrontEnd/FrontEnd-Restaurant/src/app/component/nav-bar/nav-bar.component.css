@@ -9,10 +9,9 @@
     justify-content: space-between;
     align-items: center;
     color: rgb(255, 255, 255);
-    background-color: #000;
+    background-color: transparent;
     animation: fadeInDown 1s;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(2px);
   }
   
   .header .a {}
@@ -137,8 +136,7 @@
     font-family: "1";
     width: 150px;
     height: 50px;
-    background-color: #EE2737;
-    margin: 20px;
+    background-color: #EE2737;    
     color: #ffffff;
     position: relative;
     overflow: hidden;
@@ -292,7 +290,12 @@
   }
 
 
-
+  @font-face {
+    font-family: "HONYA";
+    src: url("/assets/fonts/Honya-Regular.ttf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+  }
 
 
 
@@ -491,6 +494,17 @@
     font-style: normal;
   }
   
+
+
+
+
+
+
+
+
+
+
+
   /* Declara la fuente personalizada */
   @font-face {
     font-family: "2";

@@ -1,0 +1,75 @@
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Para que el video cubra todo el contenedor */
+    pointer-events: none; /* Permite que los clics pasen a través del video */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70.4%;
+    pointer-events: none; /* Permite que los clics pasen a través de la superposición */
+    z-index: 1; /* Posiciona la superposición por encima del video */
+}
+.tittle-slogan{
+    font-family: "HONYA";
+ 
+    margin-top: 20%;
+    color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    h1{font-size: 50px;}
+    p{font-size: 30px;}
+
+}
+@font-face {
+    font-family: "HONYA";
+    src: url("../../../../assets/fonts/Honya-Regular.ttf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+  }
+@font-face {
+font-family: "2";
+src: url("../../../../assets/fonts/PublicSans-Medium.ttf") format("opentype");
+font-weight: normal;
+font-style: normal;
+}
+/* Declara la fuente personalizada */
+@font-face {
+font-family: "3";
+src: url("../../../../assets/fonts/PublicSans-Light.ttf") format("opentype");
+font-weight: normal;
+font-style: normal;
+}
+/* Declara la fuente personalizada */
+@font-face {
+font-family: "4";
+src: url("../../../../assets/fonts/PublicSans-ExtraBoldItalic.ttf") format("opentype");
+font-weight: normal;
+font-style: normal;
+}
+/* Declara la fuente personalizada */
+@font-face {
+font-family: "5";
+src: url("../../../../assets/fonts/PublicSans-SemiBold.ttf") format("opentype");
+font-weight: normal;
+font-style: normal;
+}
+/* Declara la fuente personalizada */
+@font-face {
+font-family: "6";
+src: url("../../../../assets/fonts/PublicSans-ExtraLight.ttf") format("opentype");
+font-weight: normal;
+font-style: normal;
+}
