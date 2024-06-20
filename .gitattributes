@@ -1,0 +1,2 @@
+*.mp4 filter=lfs diff=lfs merge=lfs -text
+FrontEnd/FrontEnd-Restaurant/src/assets/4253723-uhd_4096_2160_25fps.mp4 filter=lfs diff=lfs merge=lfs -text
