@@ -42,6 +42,9 @@
   .header .li {
     margin: 0 0.8em;
   }
+  .titulo-navbar{
+    font-size: 25px;
+  }
   
   .ul {
     list-style: none;
@@ -80,7 +83,8 @@
       cursor: pointer;
     }
     .header{
-      padding: 2% 2%;
+      padding: 3% 3%;
+      backdrop-filter: blur(15px);
     }
     
     .header .nav {
@@ -96,7 +100,7 @@
     }
     
     .header .nav.activo {
-      height: 32vh;
+      height: 22vh;
       pointer-events: auto;
     }
     
@@ -107,14 +111,50 @@
     .header .li {
       margin: 1rem 0;
     }
+    img{
+      width: 33px;
+    }
+    .titulo-navbar{
+      font-size: 25px;
+
+    }
+
   }
-  
+
   @media (max-width: 767px) {
+
     .header {
       padding: 3.5% 3.5%;
-      backdrop-filter: blur(30px);
-      -webkit-backdrop-filter: blur(30px);
+      backdrop-filter: blur(20px);
     }
+    img{
+      width: 23px;
+    }
+    .titulo-navbar{
+      font-size: 20px;
+    }
+    .buttons button {
+      font-family: "1";
+      width: 120px;
+      height: 20px;
+      font-size: 10px;
+
+    }
+      /* Boton Iniciar Sesion */
+    .c-button {
+      margin-left: 0rem;
+      color: #000;
+      font-weight: 700;
+      font-size: 16px;
+      text-decoration: none;
+      padding: 0.7em 1.4em;
+      cursor: pointer;
+      display: inline-block;
+      vertical-align: middle;
+      position: relative;
+      z-index: 1;
+    }
+
   }
   
   /* Ordenadores de sobremesa y portátiles */
@@ -122,6 +162,8 @@
     .header{
       padding: 2% 2%;
     }
+
+
   }
   
   /* BOTON RESERVAR */
@@ -460,6 +502,89 @@
     transform: translateY(-50%);
     animation: start 0.3s ease;
     animation-fill-mode: forwards;
+  }
+
+
+
+
+
+
+
+
+
+  /* Boton Iniciar Sesion */
+  .c-button {
+    margin: 20px;
+    color: #000;
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none;
+    padding: 0.7em 1.4em;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .c-button--gooey {
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 2px solid #d9a106;
+    border-radius: 545px;
+    position: relative;
+    transition: all 700ms ease;
+  }
+  
+  .c-button--gooey .c-button__blobs {
+    height: 100%;
+    filter: url(#goo);
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: -3px;
+    right: -1px;
+    z-index: -1;
+    border-radius: 545px;
+  }
+  
+  .c-button--gooey .c-button__blobs div {
+    background-color: #d9a106;
+    width: 34%;
+    height: 100%;
+    border-radius: 100%;
+    position: absolute;
+    transform: scale(1.4) translateY(125%) translateZ(0);
+    transition: all 700ms ease;
+ 
+  }
+  
+  .c-button--gooey .c-button__blobs div:nth-child(1) {
+    left: -5%;
+  }
+  
+  .c-button--gooey .c-button__blobs div:nth-child(2) {
+    left: 30%;
+    transition-delay: 60ms;
+ 
+  }
+  
+  .c-button--gooey .c-button__blobs div:nth-child(3) {
+    left: 66%;
+    transition-delay: 25ms;
+   
+  }
+  
+  .c-button--gooey:hover {
+    color: #fff;
+    
+  }
+  
+  .c-button--gooey:hover .c-button__blobs div {
+    transform: scale(1.4) translateY(0) translateZ(0);
+    
   }
   
   @keyframes start {

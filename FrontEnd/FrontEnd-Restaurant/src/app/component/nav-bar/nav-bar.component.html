@@ -1,32 +1,86 @@
 <header class="header">
-    <a href="#inicio" class="a">
-     <b> <P style="font-family: 'HONYA'; font-size: 20px;">CABRERA'S</P></b>
-    </a>
-    <button class="button" (click)="toggleMenu()">
-      <img src="../../../assets/svg/menu-icon (1).svg" width="25px" alt="">
-    </button>
-    <nav class="nav" [class.activo]="menuActivo">
-      <ul class="ul">
-        <!-- <li class="li"><a href="#skills" class="a">
-          Localización
-        </a></li>
+  <a href="#inicio" class="a">
+    <b> <p class="titulo-navbar" style="font-family: 'HONYA'; ">CABRERA'S</p></b>
+  </a>
+  <button class="button" (click)="toggleMenu()">
+    <img src="../../../assets/svg/menu-icon (1).svg" width="25px" alt="" />
+  </button>
+  <nav class="nav" [class.activo]="menuActivo">
+    <ul class="ul">
 
 
-        <li class="li"><a href="#skills" class="a">
-          Contacto
-      </a></li>
-       -->
-        <li class=""><a href="#certificaciones" class="a">
-            <div class="button-pedir">
-                <button class="btn"><span></span><p data-start="RESERVAR" data-text="¡PEDIR YA!" data-title="A DOMICILIO"></p></button>
-             </div>
-        </a></li>
-        <li class=""><a href="#skills" class="a">
-            <div class="buttons">
-                <button class="btn"><span></span><p data-start="RESERVAR" data-text="¡RESERVAR YA!" data-title="RESERVAR" ></p></button>
-             </div>
-        </a></li>
-      </ul>
-    </nav>
-  </header>
-  
+
+
+      <li class="">
+        <a href="#certificaciones" class="a">
+          <div class="button-pedir">
+            <button class="btn">
+              <span></span>
+              <p
+                data-start="RESERVAR"
+                data-text="¡PEDIR YA!"
+                data-title="A DOMICILIO"
+              ></p>
+            </button>
+          </div>
+        </a>
+      </li>
+
+
+
+
+      <li class="">
+        <a href="#skills" class="a">
+          <div class="buttons">
+            <button class="btn">
+              <span></span>
+              <p class="p-button"
+                data-start="RESERVAR"
+                data-text="¡RESERVAR YA!"
+                data-title="RESERVAR"
+              ></p>
+            </button>
+          </div>
+        </a>
+      </li>
+
+
+
+
+      <li class="">
+        <a href="#certificaciones" class="a">
+          <button class="c-button c-button--gooey">
+            Iniciar Sesion
+            <div class="c-button__blobs">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </button>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            version="1.1"
+            style="display: block; height: 0; width: 0"
+          >
+            <defs>
+              <filter id="goo">
+                <feGaussianBlur
+                  in="SourceGraphic"
+                  stdDeviation="10"
+                  result="blur"
+                ></feGaussianBlur>
+                <feColorMatrix
+                  in="blur"
+                  mode="matrix"
+                  values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
+                  result="goo"
+                ></feColorMatrix>
+                <feBlend in="SourceGraphic" in2="goo"></feBlend>
+              </filter>
+            </defs>
+          </svg>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>

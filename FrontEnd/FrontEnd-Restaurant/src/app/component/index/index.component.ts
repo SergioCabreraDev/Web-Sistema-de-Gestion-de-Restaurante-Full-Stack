@@ -5,14 +5,17 @@ import { OverlayComponent } from './overlay/overlay.component';
 import { NewsletterComponent } from './newsletter/newsletter.component';
 import { CartaComponent } from './carta/carta.component';
 import { LocalizacionComponent } from './localizacion/localizacion.component';
+import { ReviewsComponent } from './reviews/reviews.component';
 
 @Component({
   selector: 'app-index',
   standalone: true,
-  imports: [NavBarComponent, FooterComponent,OverlayComponent, NewsletterComponent,CartaComponent, LocalizacionComponent],
+  imports: [NavBarComponent, FooterComponent,OverlayComponent, NewsletterComponent,CartaComponent, LocalizacionComponent, ReviewsComponent],
   templateUrl: './index.component.html',
   styleUrl: './index.component.css'
 })
 export class IndexComponent {
+
+  
 
 }

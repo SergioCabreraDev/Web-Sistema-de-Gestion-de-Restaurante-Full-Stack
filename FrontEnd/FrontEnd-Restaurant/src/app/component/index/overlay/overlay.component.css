@@ -33,6 +33,78 @@ video {
     p{font-size: 30px;}
 
 }
+
+
+
+
+
+
+
+    /* Ordenadores de sobremesa y portátiles */
+    @media only screen and (min-width: 1024px) and (max-width: 1366px) {
+
+
+
+    }
+
+    /* Ipad y Tablets */
+    @media (max-width: 1024px) {
+
+        video {
+            width: 100%;
+            object-fit: cover; /* Para que el video cubra todo el contenedor */
+            pointer-events: none; /* Permite que los clics pasen a través del video */
+        }
+        .overlay {
+            position: absolute;
+            text-align: center;
+
+        }
+        .tittle-slogan{
+            font-family: "HONYA";
+            h1{font-size: 55px;}
+            p{font-size: 35px;
+            margin: 0rem 2rem;
+            }
+        
+        }
+
+
+    }
+
+    /* Moviles */
+    @media (max-width: 767px) {
+
+        video {
+            margin-top: 4rem;
+            width: 100%;
+            object-fit: cover; /* Para que el video cubra todo el contenedor */
+            pointer-events: none; /* Permite que los clics pasen a través del video */
+        }
+        .overlay {
+            position: absolute;
+            text-align: center;
+
+        }
+        .tittle-slogan{
+            font-family: "HONYA";
+            margin-top: 27%;
+            h1{font-size: 43px;}
+            p{font-size: 20px;
+            margin: 0rem 2rem;
+            }
+        
+        }
+
+    }
+
+
+
+
+
+
+
+
 @font-face {
     font-family: "HONYA";
     src: url("../../../../assets/fonts/Honya-Regular.ttf") format("opentype");
