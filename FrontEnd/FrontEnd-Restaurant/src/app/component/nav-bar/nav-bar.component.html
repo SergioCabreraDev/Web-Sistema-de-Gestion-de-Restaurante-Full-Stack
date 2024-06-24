@@ -1,5 +1,5 @@
 <header class="header">
-  <a href="#inicio" class="a">
+  <a [routerLink]='["/index"]' class="a">
     <b> <p class="titulo-navbar" style="font-family: 'HONYA'; ">CABRERA'S</p></b>
   </a>
   <button class="button" (click)="toggleMenu()">
@@ -48,7 +48,7 @@
 
 
       <li class="">
-        <a href="#certificaciones" class="a">
+        <a [routerLink]="['/login']" routerLinkActive="router-link-active"  class="a">
           <button class="c-button c-button--gooey">
             Iniciar Sesion
             <div class="c-button__blobs">
