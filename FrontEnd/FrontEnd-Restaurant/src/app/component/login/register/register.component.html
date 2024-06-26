@@ -1,28 +1,209 @@
-<form class="form">
+<form class="form" (ngSubmit)="onSubmit(itemForm)" #itemForm="ngForm">
+
+
+    <!-- NOMBRE -->
 
     <span class="input-span">
     <label for="nombre" class="label">Nombre</label>
-    <input type="text" name="nombre" id="nombre"></span>
+    <input
+    placeholder="Escribe tu nombre"
+    class="input-field"
+    type="text"
+    required=""
+    [(ngModel)]="user.name"
+    name="name"
+    required
+    #name="ngModel"
+    minlength="3"
+  /></span>
+
+     <ng-container *ngIf="name.invalid && (name.dirty || name.touched)">
+        <ng-container *ngIf="name.errors!['required'] || name.errors?.['minlength']">
+            <div role="alert" class="alert alert-error">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6 shrink-0 stroke-current"
+                  fill="none"
+                  viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>Nombre Invalido.</span>
+              </div>
+        </ng-container>
+      </ng-container>
+
+
+
+    <!-- APELLIDOS -->
 
     <span class="input-span">
     <label for="apellidos" class="label">Apellidos</label>
-    <input type="text" name="apellidos" id="apellidos"></span>
+    <input placeholder="Escribe tus apellidos" 
+    type="text" 
+    required="" required 
+    [(ngModel)]="user.lastName" 
+    name="apellidos" 
+    id="apellidos" 
+    #lastName="ngModel"
+    minlength="3"
+    /></span>
+
+    <ng-container *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
+        
+        <ng-container *ngIf="lastName.errors!['required'] || lastName.errors?.['minlength']">
+            <div role="alert" class="alert alert-error">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6 shrink-0 stroke-current"
+                  fill="none"
+                  viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>Apellidos Invalidos.</span>
+              </div>
+        </ng-container>
+      </ng-container>
+
+
+
+    <!-- EMAIL -->
 
     <span class="input-span">
     <label for="email" class="label">Email</label>
-    <input type="email" name="email" id="email"></span>
+    <input
+      class="input-field"
+      type="email"
+      placeholder="Escribe un Correo Electronico"
+      required=""
+      [(ngModel)]="user.email"
+      name="email"
+      required
+      #email="ngModel"
+      email
+    /></span>
+    <ng-container *ngIf="email.invalid && (email.dirty || email.touched)">
+        <ng-container *ngIf="email.errors!['required']">
+            <div role="alert" class="alert alert-error">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>Correo Requerido.</span>
+              </div>
+        </ng-container>
+        <ng-container *ngIf="email.errors!['email']">
+            <div role="alert" class="alert alert-error">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>Correo Invalido.</span>
+              </div>
+        </ng-container>
+      </ng-container>
+
+
+
+    <!-- TELEFONO -->
 
     <span class="input-span">
     <label for="telf" class="label">Telefono</label>
-    <input type="number" name="telf" id="telf"></span>
+    <input placeholder="Escribe tu Numero de Telefono" 
+    pattern="(\+34|0034|34)?[ -]*(6|7)[ -]*([0-9][ -]*){8}"
+    type="text" 
+    required
+    required="" 
+    [(ngModel)]="user.phoneNumber" 
+    name="telf" 
+    #telf="ngModel"
+    minlength="9"
+    maxlength="9"
+    id="telf"></span>
+
+    <ng-container *ngIf="telf.invalid && (telf.dirty || telf.touched)">
+        
+        <ng-container *ngIf="telf.errors!['required'] || telf.errors?.['pattern']">
+            <div role="alert" class="alert alert-error">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6 shrink-0 stroke-current"
+                  fill="none"
+                  viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>Telefono Invalido.</span>
+              </div>
+        </ng-container>
+      </ng-container>
+
+
+
+    <!-- Contraseña -->
 
     <span class="input-span">
     <label for="password" class="label">Contraseña</label>
-    <input type="password" name="password" id="password"></span>
 
-    <span class="input-span">
-    <label for="passwordrepeat" class="label">Repetir Contraseña</label>
-    <input type="passwordrepeat" name="passwordrepeat" id="passwordrepeat"></span>
+    <input 
+    placeholder="Escribe tu Contraseña" 
+    type="password" 
+    required=""
+    required 
+    [(ngModel)]="user.password" 
+    name="password" 
+    id="password"
+    [pattern]=regex
+    #password="ngModel"
+    minlength="8"
+    >
+        
+    <div class="checkbox-wrapper-46">
+        <input (click)="viewPassword()" type="checkbox" id="cbx-46" class="inp-cbx" />
+        <label for="cbx-46" class="cbx"
+          ><span>
+            <svg viewBox="0 0 12 10" height="10px" width="12px">
+              <polyline points="1.5 6 4.5 9 10.5 1"></polyline></svg></span
+          ><span>Mostar Contreña</span>
+        </label>
+      </div>
+</span>
+
+
+    <ng-container *ngIf="password.invalid && (password.dirty || password.touched)">
+        <ng-container *ngIf="password.errors!['required'] || password.errors?.['pattern']">
+          
+            <div role="alert" class="alert alert-error">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span>Contraseña Invalida. (La contraseña solo puede contener letras y algun numero)</span>
+          </div>
+
+        </ng-container>
+      </ng-container>
+
+
 
     <input class="submit" type="submit" value="Registrarse">
+    <div *ngIf="errorMessage" >
+        <div role="alert" class="alert alert-error">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span>{{errorMessage}}</span>
+          </div>
+      </div>
+
 </form>
+<script>
+
+</script>

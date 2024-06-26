@@ -1,14 +1,15 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
+import { User } from '../models/User';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class SharingDataService {
 
-  constructor() { }
-  private _emitterShowModal: EventEmitter<any> = new EventEmitter();
+  private _emitterNewUser: EventEmitter<User> = new EventEmitter();
 
-  emitterShowModal(): any{
-    return this._emitterShowModal;
+  get emitterNewUser(): EventEmitter<User> {
+    return this._emitterNewUser;
   }
 }

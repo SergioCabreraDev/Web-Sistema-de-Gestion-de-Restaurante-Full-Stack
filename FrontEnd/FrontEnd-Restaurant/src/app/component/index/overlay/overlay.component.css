@@ -29,7 +29,8 @@ video {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    h1{font-size: 50px;}
+    h1{font-size: 50px;
+    font-family: 'HONYA';}
     p{font-size: 30px;}
 
 }
