@@ -3,6 +3,7 @@ import { LoginComponent } from './component/login/login.component';
 import { IndexComponent } from './component/index/index.component';
 import { RegisterComponent } from './component/login/register/register.component';
 import { ForgotPasswordComponent } from './component/login/forgot-password/forgot-password.component';
+import { BookingsComponent } from './component/bookings/bookings.component';
 
 export const routes: Routes = [
     {
@@ -26,4 +27,8 @@ export const routes: Routes = [
         path: 'forgotpassword',
         component: ForgotPasswordComponent
     },
+    {
+        path: 'bookings',
+        component: BookingsComponent
+    }
 ];

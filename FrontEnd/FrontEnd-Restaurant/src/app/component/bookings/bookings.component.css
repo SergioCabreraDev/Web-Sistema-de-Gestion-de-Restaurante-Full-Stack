@@ -1,0 +1,17 @@
+label{
+    color: rgb(255, 255, 255);
+}
+input, select{
+    background-color: #971823;
+    color: white;
+}
+input:focus{
+    background-color: #500c12;
+}
+button{
+    color: white;
+    background-color: #FFB600;
+}
+button:hover{
+    background-color: #c68e00;
+}

@@ -1,1 +1,75 @@
-<p>bookings works!</p>
+<div class="flex flex-col items-center justify-center h-screen dark">
+    <div class="w-full max-w-md bg-gray-800 rounded-lg shadow-md p-6" style="background-color: #EE2737;">
+      <h2 class="text-2xl font-bold text-white-200 mb-4" style="color: rgb(255, 255, 255);">Reserva</h2>
+      <form class="flex flex-col" >
+        <div class="flex space-x-4 mb-4">
+          <input
+            placeholder="Nombre"
+            class="bg-white-700 text-white-200 border-0 rounded-md p-2 w-1/2 focus:bg-white-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
+            type="text"
+          />
+
+
+          <input
+            placeholder="Apellido"
+            class="bg-gray-700 text-gray-200 border-0 rounded-md p-2 w-1/2 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
+            type="text"
+          />
+        </div>
+
+
+
+        <input
+          placeholder="Telefono"
+          class="bg-gray-700 text-gray-200 border-0 rounded-md p-2 mb-4 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
+          type="number"
+        />
+
+
+
+        <input
+          placeholder="Numero de personas"
+          class="bg-gray-700 text-gray-200 border-0 rounded-md p-2 mb-4 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
+          type="number"
+        />
+
+
+
+      
+        <label class="text-sm mb-2 text-gray-200 cursor-pointer" for="age">
+          Fecha
+        </label>
+        <input
+          class="bg-gray-700 text-gray-200 border-0 rounded-md p-2"
+          id="age"
+          type="date"
+        />
+        <br>
+
+
+
+
+        <label class="text-sm mb-2 text-gray-200 cursor-pointer" for="gender">
+            Hora
+        </label>
+        <select
+        class="bg-gray-700 text-gray-200 border-0 rounded-md p-2 mb-4 focus:bg-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
+        id="gender"
+      >
+        <!-- HORAS DISPONIBLES -->
+ 
+         
+
+      </select>
+        
+        <button
+          class="bg-to-r from-indigo-500 to-500 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-indigo-600 hover:to-600 transition ease-in-out duration-150"
+          type="submit"
+        >
+          RESERVAR
+        </button>
+      </form>
+    </div>
+  </div>
+  
+  
