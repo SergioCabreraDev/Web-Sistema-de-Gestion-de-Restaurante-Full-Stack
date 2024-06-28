@@ -15,3 +15,43 @@ button{
 button:hover{
     background-color: #c68e00;
 }
+
+form{
+    font-family: "2";
+}
+
+/* Declara la fuente personalizada */
+@font-face {
+    font-family: "2";
+    src: url("/assets/fonts/PublicSans-Medium.ttf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+  }
+  /* Declara la fuente personalizada */
+  @font-face {
+    font-family: "3";
+    src: url("/assets/fonts/PublicSans-Light.ttf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+  }
+  /* Declara la fuente personalizada */
+  @font-face {
+    font-family: "4";
+    src: url("/assets/fonts/PublicSans-ExtraBoldItalic.ttf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+  }
+  /* Declara la fuente personalizada */
+  @font-face {
+    font-family: "5";
+    src: url("/assets/fonts/PublicSans-SemiBold.ttf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+  }
+  /* Declara la fuente personalizada */
+  @font-face {
+    font-family: "6";
+    src: url("/assets/fonts/PublicSans-ExtraLight.ttf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+  }
