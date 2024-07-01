@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Booking } from '../../models/Booking';
 
+
 @Component({
   selector: 'app-bookings',
   standalone: true,
@@ -15,10 +16,9 @@ export class BookingsComponent implements OnInit {
 
   booking!: Booking;
 
-
-
-
-
+ constructor(){
+  this.booking = new Booking(); // Inicializa un nuevo usuario
+ }
 
 onSubmit(arg0: any) {
 throw new Error('Method not implemented.');

@@ -2,32 +2,118 @@
     <div class="w-full max-w-md bg-gray-800 rounded-lg shadow-md p-6" style="background-color: #EE2737;">
       <h2 class="text-2xl font-bold text-white-200 mb-4" style="color: rgb(255, 255, 255);">Reserva</h2>
       <form class="flex flex-col" #itemForm="ngForm" (ngSubmit)="onSubmit(itemForm)">
-        <div class="flex space-x-4 mb-4">
+
+          <!-- NAME -->
+
           <input
             placeholder="Nombre"
-            class="bg-white-700 text-white-200 border-0 rounded-md p-2 w-1/2 focus:bg-white-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
+            class="bg-gray-700 text-gray-200 border-0 rounded-md p-2 mb-4 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
             type="text"
             required
             [(ngModel)]="booking.name"
+            name="name"
+            #name="ngModel"
+            minlength="3"
           />
+    
+          <ng-container *ngIf="name.invalid && (name.dirty || name.touched)">
+            <ng-container *ngIf="name.errors!['required'] || name.errors?.['minlength']">
+                <div role="alert" class="alert alert-error">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6 shrink-0 stroke-current"
+                      fill="none"
+                      viewBox="0 0 24 24">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>Nombre Invalido.</span>
+                  </div>
+            </ng-container>
+          </ng-container>
+
+
+
+
+          <!-- LASTNAME -->
 
 
           <input
             placeholder="Apellido"
-            class="bg-gray-700 text-gray-200 border-0 rounded-md p-2 w-1/2 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
+            class="bg-gray-700 text-gray-200 border-0 rounded-md p-2 mb-4 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
             type="text"
+            [(ngModel)]="booking.lastName"
+            #lastName="ngModel"
+            required
+            minlength="3"
+            name="lastName"
           />
-        </div>
+
+          <ng-container *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
+        
+            <ng-container *ngIf="lastName.errors!['required'] || lastName.errors?.['minlength']">
+                <div role="alert" class="alert alert-error">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-6 w-6 shrink-0 stroke-current"
+                      fill="none"
+                      viewBox="0 0 24 24">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>Apellidos Invalidos.</span>
+                  </div>
+            </ng-container>
+          </ng-container>
+        
+     
 
 
+
+
+
+        <!-- PHONE -->
 
         <input
-          placeholder="Telefono"
           class="bg-gray-700 text-gray-200 border-0 rounded-md p-2 mb-4 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
-          type="number"
+          placeholder="Escribe tu Numero de Telefono" 
+          pattern="(\+34|0034|34)?[ -]*(6|7)[ -]*([0-9][ -]*){8}"
+          type="text" 
+          required
+          required="" 
+          [(ngModel)]="booking.phoneNumber" 
+          name="telf" 
+          #telf="ngModel"
+          minlength="9"
+          maxlength="9"
+          id="telf"
         />
 
-
+        <ng-container *ngIf="telf.invalid && (telf.dirty || telf.touched)">
+        
+          <ng-container *ngIf="telf.errors!['required'] || telf.errors?.['pattern']">
+              <div role="alert" class="alert alert-error">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6 shrink-0 stroke-current"
+                    fill="none"
+                    viewBox="0 0 24 24">
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span>Telefono Invalido.</span>
+                </div>
+          </ng-container>
+        </ng-container>
 
         <input
           placeholder="Numero de personas"

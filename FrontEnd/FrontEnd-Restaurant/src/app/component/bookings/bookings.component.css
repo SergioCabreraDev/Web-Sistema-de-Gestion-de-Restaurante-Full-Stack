@@ -20,6 +20,10 @@ form{
     font-family: "2";
 }
 
+.alert{
+  margin-bottom: 1rem;
+}
+
 /* Declara la fuente personalizada */
 @font-face {
     font-family: "2";
