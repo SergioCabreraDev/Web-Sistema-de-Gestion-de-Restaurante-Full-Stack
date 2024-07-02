@@ -15,18 +15,25 @@ export class BookingsComponent implements OnInit {
 
 
   booking!: Booking;
+  today: string;
+  horas: string[] = [];
 
  constructor(){
   this.booking = new Booking(); // Inicializa un nuevo usuario
+  const todayDate = new Date();
+    const day = String(todayDate.getDate()).padStart(2, '0');
+    const month = String(todayDate.getMonth() + 1).padStart(2, '0'); // Enero es 0
+    const year = todayDate.getFullYear();
+    this.today = `${year}-${month}-${day}`;
  }
 
-onSubmit(arg0: any) {
-throw new Error('Method not implemented.');
-}
+  onSubmit(arg0: any) {
+  throw new Error('Method not implemented.');
+  }
+
   ngOnInit(): void {
     this.generarHoras();
   }
-  horas: string[] = [];
 
   generarHoras() {
     const startHour = 12;

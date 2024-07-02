@@ -5,6 +5,7 @@ export class Booking{
     name!: string;
     lastName!: string;
     phoneNumber!: number;
+    numberOfPeople!: number;
     date!: Date;
     time!: string;
 }

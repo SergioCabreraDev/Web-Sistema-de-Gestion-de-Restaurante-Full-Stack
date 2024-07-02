@@ -116,39 +116,106 @@
         </ng-container>
 
         <input
-          placeholder="Numero de personas"
+          placeholder="Número de personas"
           class="bg-gray-700 text-gray-200 border-0 rounded-md p-2 mb-4 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
-          type="number"
+          type="text"
+          required
+          [(ngModel)]="booking.numberOfPeople"
+          name="numberOfPeople"
+          #numberOfPeople="ngModel"
+          pattern="^([1-9]|1[0-9]|20)$"
         />
+
+      <div *ngIf="numberOfPeople.invalid && numberOfPeople.touched" class="text-red-500">
+
+        <div role="alert" class="alert alert-error">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 shrink-0 stroke-current"
+            fill="none"
+            viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span>        El número de personas debe ser entre 1 y 20. <br>
+            En caso de superar el maximo contacten con nosotros.</span>
+        </div>
+      </div>
+
 
 
 
       
-        <label class="text-sm mb-2 text-gray-200 cursor-pointer" for="age">
-          Fecha
-        </label>
-        <input
-          class="bg-gray-700 text-gray-200 border-0 rounded-md p-2"
-          id="age"
-          type="date"
-        />
+      <label class="text-sm mb-2 text-gray-200 cursor-pointer" for="age">
+        Fecha
+      </label>
+      <input
+        class="bg-gray-700 text-gray-200 border-0 rounded-md p-2"
+        id="age"
+        type="date"
+        [min]="today"
+        required
+        [(ngModel)]="booking.date"
+        #date="ngModel"
+        name="date"
+      /> 
+      <div *ngIf="date.invalid && date.touched" class="text-red-500">
+
+        <div role="alert" class="alert alert-error" style="margin-top: 1rem;">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 shrink-0 stroke-current"
+            fill="none"
+            viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span>Elige una fecha</span>
+        </div>
+      </div>
+
         <br>
-
-
-
-
         <label class="text-sm mb-2 text-gray-200 cursor-pointer" for="gender">
             Hora
         </label>
         <select
         class="bg-gray-700 text-gray-200 border-0 rounded-md p-2 mb-4 focus:bg-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
         id="gender"
-      >
+        required
+        [(ngModel)]="booking.time"
+        #time="ngModel"
+        name="time"
+
+      > 
         <!-- HORAS DISPONIBLES -->
-        <option value="" disabled selected>Seleccione</option>
         <option *ngFor="let hora of horas" [value]="hora">{{ hora }}</option>
+        
 
       </select>
+
+      <div *ngIf="time.invalid && time.touched" class="text-red-500">
+
+        <div role="alert" class="alert alert-error" style="">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 shrink-0 stroke-current"
+            fill="none"
+            viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span>Elige una hora</span>
+        </div>
+      </div>
         
         <button
           class="bg-to-r from-indigo-500 to-500 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-indigo-600 hover:to-600 transition ease-in-out duration-150"
