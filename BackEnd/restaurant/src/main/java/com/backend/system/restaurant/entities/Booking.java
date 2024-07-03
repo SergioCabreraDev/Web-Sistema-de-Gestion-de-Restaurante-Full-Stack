@@ -34,6 +34,9 @@ public class Booking {
     String phoneNumber;
 
     @Getter @Setter
+    String numberOfPersons;
+
+    @Getter @Setter
     Date date;
 
     @NotEmpty

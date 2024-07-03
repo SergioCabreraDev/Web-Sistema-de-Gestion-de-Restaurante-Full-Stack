@@ -7,7 +7,7 @@ import { SharingDataService } from '../../../services/sharing-data.service';
 import { Router, RouterModule } from '@angular/router';
 import Swal from 'sweetalert2';
 import jQuery from 'jquery'; // Importa jQuery
-import { empty } from 'rxjs';
+
 
 @Component({
   selector: 'app-register',
