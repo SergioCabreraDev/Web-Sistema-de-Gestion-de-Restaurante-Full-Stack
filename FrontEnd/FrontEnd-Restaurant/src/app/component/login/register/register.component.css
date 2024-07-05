@@ -166,3 +166,26 @@ form {
     transform: scale(0.9);
   }
 }
+
+    /* Ordenadores de sobremesa y portátiles */
+    @media only screen and (min-width: 1024px) and (max-width: 1366px) {
+
+
+
+    }
+
+    /* Ipad y Tablets */
+    @media (max-width: 1024px) {
+
+
+
+
+    }
+
+    /* Moviles */
+    @media (max-width: 767px) {
+      .form{    padding: 8rem 3rem;
+      }
+
+
+    }

@@ -76,20 +76,11 @@ video {
     /* Moviles */
     @media (max-width: 767px) {
 
-        video {
-            margin-top: 4rem;
-            width: 100%;
-            object-fit: cover; /* Para que el video cubra todo el contenedor */
-            pointer-events: none; /* Permite que los clics pasen a través del video */
-        }
-        .overlay {
-            position: absolute;
-            text-align: center;
-
-        }
         .tittle-slogan{
+            align-items: center;
+
             font-family: "HONYA";
-            margin-top: 27%;
+            margin-top: 50%;
             h1{font-size: 43px;}
             p{font-size: 20px;
             margin: 0rem 2rem;

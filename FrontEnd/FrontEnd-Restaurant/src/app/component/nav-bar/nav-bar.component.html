@@ -12,7 +12,7 @@
 
 
       <li class="">
-        <a href="#certificaciones" class="a">
+        <a href="#certificaciones" class="a" (click)="closeMenu()">
           <div class="button-pedir">
             <button class="btn">
               <span></span>
@@ -30,7 +30,7 @@
 
 
       <li class="">
-        <a [routerLink]="['/bookings']" href="#skills" class="a">
+        <a [routerLink]="['/bookings']" href="#skills" class="a" (click)="closeMenu()">
           <div class="buttons">
             <button class="btn">
               <span></span>
@@ -48,7 +48,7 @@
 
 
       <li class="">
-        <a [routerLink]="['/login']" routerLinkActive="router-link-active"  class="a">
+        <a [routerLink]="['/login']" routerLinkActive="router-link-active"  class="a" (click)="closeMenu()">
           <button class="c-button c-button--gooey">
             Iniciar Sesion
             <div class="c-button__blobs">

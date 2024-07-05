@@ -2,14 +2,17 @@ package com.backend.system.restaurant.controllers;
 
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -35,8 +38,6 @@ public class BookingController {
         return ResponseEntity.status(HttpStatus.CREATED).body(services.save(booking));
     }
 
-
-
      // Método privado para manejar los errores de validación
     private ResponseEntity<?> validation(BindingResult result) {
         Map<String, String> errors = new HashMap<>();
@@ -46,6 +47,12 @@ public class BookingController {
         });
         // Retorna una respuesta de error badRequest con los errores de validación
         return ResponseEntity.badRequest().body(errors);
+    }
+
+        // Método para obtener usuarios de manera paginada
+    @GetMapping
+    public List<Booking> findAllBookings() {
+        return services.findAll();  // Retorna la página de usuarios
     }
 
 }

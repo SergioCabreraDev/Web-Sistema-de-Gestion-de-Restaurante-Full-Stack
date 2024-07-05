@@ -1,0 +1,29 @@
+<div class="margenes">
+    <div class="overflow-x-auto">
+        <table class="table">
+          <!-- head -->
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>NOMBRE Y APELLIDOS</th>
+              <th>TELEFONO</th>
+              <th>PERSONAS</th>
+              <th>FECHA</th>
+              <th>HORA</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr *ngFor="let item of bookings">
+              <th>{{item.id}}</th>
+              <td>{{item.name + " " + item.lastName}}</td>
+              <td>{{item.phoneNumber}}</td>
+              <td>{{item.numberOfPersons}}</td>
+              <td>{{item.date}}</td>
+              <td>{{item.time}}</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+</div>

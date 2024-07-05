@@ -36,6 +36,13 @@ export class RestauranteServiceService {
       );
     }
 
+        // Método para crear una reserva
+        findAllBookings(): Observable<Booking[]>{
+          return this.http.get<Booking[]>(this.urlBookings).pipe(
+            catchError(this.handleError)
+          );
+        }
+
     private handleError(error: HttpErrorResponse) {
       let errorMessage = 'Error desconocido';
       if (error.error instanceof ErrorEvent) {

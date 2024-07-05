@@ -1,5 +1,8 @@
 .header {
     position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Asegúrate de que tenga un alto índice z para que quede por encima de otros elementos */
     width: 100%;
     font-size: 17px;
     padding: 1% 3%;

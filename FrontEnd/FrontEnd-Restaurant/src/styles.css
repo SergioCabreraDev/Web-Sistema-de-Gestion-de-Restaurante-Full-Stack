@@ -3,9 +3,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-html {
-    min-height: 100%;
-  }
+
   * {
     margin: 0;
     box-sizing: border-box;
@@ -17,5 +15,15 @@ html {
   }
 
   
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+  body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+
+
+main-content {
+  padding-top: 60px; /* Ajusta según la altura de tu nav-bar */
+  padding-bottom: 60px; /* Ajusta según la altura de tu footer */
+  min-height: calc(100vh - 120px); /* Altura de la ventana menos la altura del nav-bar y footer */
+}
