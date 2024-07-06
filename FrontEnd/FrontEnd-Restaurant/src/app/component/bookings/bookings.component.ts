@@ -2,14 +2,15 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Booking } from '../../models/Booking';
-import { RestauranteServiceService } from '../../services/restaurante-service.service';
 import Swal from 'sweetalert2';
+import { BookingsServicesService } from '../../services/bookings-services.service';
+import { RouterLink } from '@angular/router';
 
 
 @Component({
   selector: 'app-bookings',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './bookings.component.html',
   styleUrl: './bookings.component.css'
 })
@@ -22,7 +23,7 @@ export class BookingsComponent implements OnInit {
   errorMessage!: string;
 
   constructor(
-    private service: RestauranteServiceService
+    private service: BookingsServicesService
   
   ) {
     this.booking = new Booking();

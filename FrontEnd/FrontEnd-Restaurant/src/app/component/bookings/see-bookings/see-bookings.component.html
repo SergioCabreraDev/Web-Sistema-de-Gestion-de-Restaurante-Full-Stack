@@ -1,29 +1,64 @@
 <div class="margenes">
-    <div class="overflow-x-auto">
-        <table class="table">
-          <!-- head -->
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>NOMBRE Y APELLIDOS</th>
-              <th>TELEFONO</th>
-              <th>PERSONAS</th>
-              <th>FECHA</th>
-              <th>HORA</th>
-            </tr>
-          </thead>
-          <tbody>
-            
-            <tr *ngFor="let item of bookings">
-              <th>{{item.id}}</th>
-              <td>{{item.name + " " + item.lastName}}</td>
-              <td>{{item.phoneNumber}}</td>
-              <td>{{item.numberOfPersons}}</td>
-              <td>{{item.date}}</td>
-              <td>{{item.time}}</td>
-            </tr>
-            
-          </tbody>
-        </table>
-      </div>
+  <div class="overflow-x-auto">
+    <label class="text-sm mb-2 text-gray-200 cursor-pointer" for="age">
+      Fecha
+    </label>
+    <input
+      class="bg-gray-700 text-gray-200 border-0 rounded-md p-2"
+      id="age"
+      type="date"
+      [min]="today"
+      required
+      name="date"
+      [(ngModel)]="valueInputDate"
+      (ngModelChange)="filterBookings()"
+    />
+    <table class="table">
+      <!-- head -->
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>NOMBRE Y APELLIDOS</th>
+          <th>TELEFONO</th>
+          <th>PERSONAS</th>
+          <th>HORA</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="filteredBookings.length === 0">
+          <td colspan="6">
+            <div role="alert" class="alert alert-warning">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 shrink-0 stroke-current"
+                fill="none"
+                viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+              <span>No hay reservas para la fecha seleccionada</span>
+            </div>
+          </td>
+        </tr>
+        <tr *ngFor="let item of filteredBookings">
+          <th>{{item.id}}</th>
+          <td>{{item.name + ' ' + item.lastName}}</td>
+          <td>{{item.phoneNumber}}</td>
+          <td>{{item.numberOfPersons}}</td>
+          <td>{{item.time}}</td>
+          <td>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-x">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+              <path d="M18 6l-12 12" />
+              <path d="M6 6l12 12" />
+            </svg>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

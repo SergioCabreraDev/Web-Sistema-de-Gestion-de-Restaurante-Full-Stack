@@ -1,5 +1,7 @@
 package com.backend.system.restaurant.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,12 @@ public class UserServicesImpl implements UserServices {
     @Transactional
     public User save(User user){
         return repository.save(user);
+    }
+
+    @Override
+    public List<User> findAll() {
+
+        return repository.findAll();
     }
 
 }

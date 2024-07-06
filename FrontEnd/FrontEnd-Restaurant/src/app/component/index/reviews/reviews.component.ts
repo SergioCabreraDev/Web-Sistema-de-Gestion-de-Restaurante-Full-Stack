@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { RestauranteServiceService } from '../../../services/restaurante-service.service';
 import { CommonModule } from '@angular/common';
+import { UserServicesService } from '../../../services/user-services.service';
 
 @Component({
   selector: 'reviews',
@@ -14,7 +14,7 @@ export class ReviewsComponent implements OnInit {
   reviews: any[] = []
 
   constructor(
-    private service: RestauranteServiceService
+    private service: UserServicesService
   ) {}
   
   ngOnInit(): void {

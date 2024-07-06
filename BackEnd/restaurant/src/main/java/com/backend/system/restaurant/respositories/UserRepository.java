@@ -1,5 +1,7 @@
 package com.backend.system.restaurant.respositories;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.CrudRepository;
@@ -10,5 +12,5 @@ import com.backend.system.restaurant.entities.User;
 @Repository
 public interface UserRepository extends CrudRepository<User, Long> {
     // Método para recuperar todos los usuarios de manera paginada
-    Page<User> findAll(Pageable pageable);
+    List<User> findAll();
 }

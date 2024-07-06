@@ -4,23 +4,19 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { User } from '../models/User';
 import { catchError } from 'rxjs/operators';
-import { Booking } from '../models/Booking';
-
 
 @Injectable({
   providedIn: 'root'
 })
-export class RestauranteServiceService {
-
+export class UserServicesService {
   private urlUsers: string = 'http://localhost:8080/api/users';  // URL base
-  private urlBookings: string = 'http://localhost:8080/api/bookings';  // URL base
 
   constructor(private http: HttpClient) { }
 
 
-  findAllReviews(): any[]{
-    return reviews;
-  }
+    findAllReviews(): any[]{
+      return reviews;
+    }
 
     // Método para crear un nuevo usuario
     create(user: User): Observable<User> {
@@ -29,19 +25,6 @@ export class RestauranteServiceService {
       );
     }
 
-    // Método para crear una reserva
-    createBooking(booking: Booking): Observable<Booking>{
-      return this.http.post<Booking>(this.urlBookings, booking).pipe(
-        catchError(this.handleError)
-      );
-    }
-
-        // Método para crear una reserva
-        findAllBookings(): Observable<Booking[]>{
-          return this.http.get<Booking[]>(this.urlBookings).pipe(
-            catchError(this.handleError)
-          );
-        }
 
     private handleError(error: HttpErrorResponse) {
       let errorMessage = 'Error desconocido';
@@ -60,6 +43,4 @@ export class RestauranteServiceService {
       console.error(errorMessage);
       return throwError(errorMessage);
     }
-
-
 }

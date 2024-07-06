@@ -2,11 +2,11 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { User } from '../../../models/User';
-import { RestauranteServiceService } from '../../../services/restaurante-service.service';
 import { SharingDataService } from '../../../services/sharing-data.service';
 import { Router, RouterModule } from '@angular/router';
 import Swal from 'sweetalert2';
 import jQuery from 'jquery'; // Importa jQuery
+import { UserServicesService } from '../../../services/user-services.service';
 
 
 @Component({
@@ -25,7 +25,7 @@ export class RegisterComponent implements OnInit {
   
   
   constructor(
-    private service: RestauranteServiceService,
+    private service: UserServicesService,
     private sharingData: SharingDataService,
     private router: Router,
   ){

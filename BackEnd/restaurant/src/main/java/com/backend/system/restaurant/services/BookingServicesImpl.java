@@ -1,6 +1,7 @@
 package com.backend.system.restaurant.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,17 @@ public class BookingServicesImpl implements BookingServices {
     @Override
     public List<Booking> findAll(){
         return repository.findAll();
+    }
+
+    @Override
+    @Transactional
+    public void deleteById(Long id) {
+        repository.deleteById(id);
+    }
+
+    @Override
+    public Optional<Booking> findById(Long id) {
+        return repository.findById(id);
     } 
 
 }
