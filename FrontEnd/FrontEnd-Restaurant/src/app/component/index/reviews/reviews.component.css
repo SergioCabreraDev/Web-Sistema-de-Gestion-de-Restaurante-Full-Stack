@@ -14,7 +14,7 @@
     justify-content: space-around;
     width: 450px;
     height: 250px;
-    background: #EE2737;
+    background: #f0f0f0;
     border-radius: 10px;
     margin: 10px 0;
     font-family: "2";
@@ -41,7 +41,7 @@
     height: 48px;
     margin-right: 12px;
     border-radius: 50%;
-    background: #000000;
+    background: #cac8c8;
   }
   
   .review-card .review-header .rating i {
@@ -74,6 +74,16 @@
     margin-right: 10px;
   }
 
+  .review-card{
+    transition: .5s, color .10s;
+        -webkit-transition: .5s, color .10s;
+        -moz-transition: .5s, color .10s;
+}
+.review-card:hover{
+    transform: scale3d(1.1, 1.1, 0.3);
+        -webkit-transform: scale3d(1.1, 1.1, 0.3);
+        -moz-transform: scale3d(1.1, 1.1, 0.3);
+}
     /* Ordenadores de sobremesa y portátiles */
     @media only screen and (min-width: 1024px) and (max-width: 1366px) {
 
