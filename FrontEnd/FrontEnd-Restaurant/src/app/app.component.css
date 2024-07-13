@@ -1,0 +1,22 @@
+#cookie-consent {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; 
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); 
+    background-color: transparent;
+}
+#buttonAccept{
+ background-color: #FFB600;
+ outline-color:#FFB600;
+ border: #FFB600;
+}
+.card-body{
+    background-color: rgb(0, 0, 0);
+
+    animation: fadeInUp;
+    animation-duration: 0.7s;
+    
+}
+

@@ -1,3 +1,17 @@
+<ng-container *ngIf="cookies == true">
+    <div id="cookie-consent" class="card bg-neutral text-neutral-content w-96">
+        <div class="card-body items-center text-center">
+            <h2 class="card-title">Cookies!</h2>
+            <p>We are using cookies for no reason.</p>
+            <div class="card-actions justify-end">
+                <button id="buttonAccept" (click)="hideCookies()" class="btn btn-primary">Accept</button>
+                <button id="buttonDeny" (click)="hideCookies()" class="btn btn-ghost">Deny</button>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+
 <nav-bar></nav-bar>
 
 <router-outlet></router-outlet>

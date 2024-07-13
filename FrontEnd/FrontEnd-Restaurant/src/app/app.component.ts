@@ -14,4 +14,13 @@ import { FooterComponent } from "./component/footer/footer.component";
 })
 export class AppComponent {
   title = 'FrontEnd-Restaurant';
+
+
+  cookies: boolean = true;
+
+
+  hideCookies(){
+    this.cookies = false
+  }
+
 }

@@ -61,7 +61,7 @@ export class BookingsComponent implements OnInit {
         
           Swal.fire({
             icon: "success",
-            title: "El Registro Se Ha Completado",
+            title: "¡Gracias por su reserva!",
             showConfirmButton: false,
             timer: 1500
           });
@@ -74,7 +74,7 @@ export class BookingsComponent implements OnInit {
         Swal.fire({
           icon: "error",
           title: error,
-          text: "Ingresa otro Usuario o Telefono"
+          text: "La Reserva no es Valida"
         });
         this.errorMessage = error; // Asigna el mensaje de error para mostrar en tu plantilla
       }
