@@ -19,6 +19,9 @@ public class UserServicesImpl implements UserServices {
     @Override
     @Transactional
     public User save(User user){
+
+        // user.setRoles(getR);      CONTINUAR AQUI
+
         return repository.save(user);
     }
 
