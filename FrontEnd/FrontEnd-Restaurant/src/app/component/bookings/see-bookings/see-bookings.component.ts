@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { BookingsServicesService } from '../../../services/bookings-services.service';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from '../../../services/auth.service';
+import { User } from '../../../models/User';
 
 @Component({
   selector: 'app-see-bookings',
@@ -18,8 +20,9 @@ export class SeeBookingsComponent implements OnInit {
   filteredBookings: Booking[] = [];
   today: string;
   valueInputDate: string;
+  user!: User;
 
-  constructor(private service: BookingsServicesService) {
+  constructor(private service: BookingsServicesService, private authService: AuthService) {
     const todayDate = new Date();
     const day = String(todayDate.getDate()).padStart(2, '0');
     const month = String(todayDate.getMonth() + 1).padStart(2, '0');
@@ -60,4 +63,13 @@ export class SeeBookingsComponent implements OnInit {
       return bookingDate.toDateString() === selectedDate.toDateString();
     });
   }
+
+    
+  // get login() {
+  //   return this.authService.user;
+  // }
+
+  // get admin() {
+  //   return this.authService.isAdmin();
+  // }
 }

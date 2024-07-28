@@ -5,6 +5,9 @@ import { RegisterComponent } from './component/login/register/register.component
 import { ForgotPasswordComponent } from './component/login/forgot-password/forgot-password.component';
 import { BookingsComponent } from './component/bookings/bookings.component';
 import { SeeBookingsComponent } from './component/bookings/see-bookings/see-bookings.component';
+import { Forbidden403Component } from './component/forbidden403/forbidden403.component';
+import { authGuard } from './guards/auth.guard';
+import { loginGuard } from './guards/login.guard';
 
 export const routes: Routes = [
     {
@@ -18,23 +21,26 @@ export const routes: Routes = [
     },
     {
         path: 'login',
-        component: LoginComponent
+        component: LoginComponent,
+        canActivate: [loginGuard]
     },
     {
         path: 'users/register',
         component: RegisterComponent
     },
     {
-        path: 'forgotpassword',
-        component: ForgotPasswordComponent
-    },
-    {
         path: 'bookings',
-        component: BookingsComponent
+        component: BookingsComponent,
+        canActivate: [authGuard]
     },
     {
         path: 'bookings/see-bookings',
-        component: SeeBookingsComponent
-    }
+        component: SeeBookingsComponent, 
+        canActivate: [authGuard]
 
+    },
+    {
+        path: 'forbidden',
+        component: Forbidden403Component
+    }
 ];

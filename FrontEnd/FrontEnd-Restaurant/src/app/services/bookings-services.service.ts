@@ -26,6 +26,7 @@ export class BookingsServicesService {
             catchError(this.handleError)
           );
         }
+        
 
 
         private handleError(error: HttpErrorResponse) {

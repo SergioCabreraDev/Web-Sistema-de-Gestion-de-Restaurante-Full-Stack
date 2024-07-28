@@ -45,42 +45,58 @@
       </li>
 
 
+      @if(!login.isAuth){
+        <li class="">
+          <a [routerLink]="['/login']" routerLinkActive="router-link-active"  class="a" (click)="closeMenu()">
+            <button class="c-button c-button--gooey">
+              Iniciar Sesion
+              <div class="c-button__blobs">
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </button>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              version="1.1"
+              style="display: block; height: 0; width: 0"
+            >
+              <defs>
+                <filter id="goo">
+                  <feGaussianBlur
+                    in="SourceGraphic"
+                    stdDeviation="10"
+                    result="blur"
+                  ></feGaussianBlur>
+                  <feColorMatrix
+                    in="blur"
+                    mode="matrix"
+                    values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
+                    result="goo"
+                  ></feColorMatrix>
+                  <feBlend in="SourceGraphic" in2="goo"></feBlend>
+                </filter>
+              </defs>
+            </svg>
+          </a>
+        </li>
+      }
+      
 
 
-      <li class="">
-        <a [routerLink]="['/login']" routerLinkActive="router-link-active"  class="a" (click)="closeMenu()">
-          <button class="c-button c-button--gooey">
-            Iniciar Sesion
-            <div class="c-button__blobs">
-              <div></div>
-              <div></div>
-              <div></div>
+
+
+            @if(login.isAuth){
+              <div class="collapse navbar-collapse justify-content-end" id="navbarNavAuth">
+                <span class="nav-item nav-link text-primary mx-3">
+                {{ login.user.username }}
+                <button
+                (click)="handlerLogout()"
+                class="btn btn-outline-success">Cerrar Sesion</button>
+              </span>
             </div>
-          </button>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            version="1.1"
-            style="display: block; height: 0; width: 0"
-          >
-            <defs>
-              <filter id="goo">
-                <feGaussianBlur
-                  in="SourceGraphic"
-                  stdDeviation="10"
-                  result="blur"
-                ></feGaussianBlur>
-                <feColorMatrix
-                  in="blur"
-                  mode="matrix"
-                  values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
-                  result="goo"
-                ></feColorMatrix>
-                <feBlend in="SourceGraphic" in2="goo"></feBlend>
-              </filter>
-            </defs>
-          </svg>
-        </a>
-      </li>
+            } 
+
     </ul>
   </nav>
 </header>

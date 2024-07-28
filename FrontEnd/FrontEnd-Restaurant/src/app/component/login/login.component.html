@@ -1,13 +1,18 @@
-<form class="form">
+<form (ngSubmit)="createUser()" >
     <span class="input-span">
-    <label for="email" class="label">Email</label>
-    <input type="email" name="email" id="email"></span>
-    <span class="input-span">
-    <label for="password" class="label">Contraseña</label>
-    <input type="password" name="password" id="password"></span>
-    <span class="span"><a>Olvidaste tu contraseña?</a></span> 
-     <!--[routerLink]='["/forgotpassword"]'-->
-    <input class="submit" type="submit" value="Iniciar Sesion">
+   
+        <label for="email" class="label">Email</label>
+        <input 
+        type="email" name="email" id="email"
+        placeholder="Email" 
+        [(ngModel)]="user.email">
+        <label for="password" class="label">Contraseña</label>
+        <input 
+        type="password" name="password" id="password"
+        placeholder="Password"
+        [(ngModel)]="user.password">
+
+        <input class="submit" type="submit" value="Iniciar Sesion">
+
     <span class="span">No tienes cuenta? <a href="#" [routerLink]="['/users/register']" routerLinkActive="router-link-active" >Registrate</a></span>
-</form>
 
