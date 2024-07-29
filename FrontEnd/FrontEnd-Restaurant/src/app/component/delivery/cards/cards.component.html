@@ -1,81 +1,62 @@
+
+<section>
+    <H2 style="text-align: center;">ENTRANTES</H2>
 <div class="cards">
+    @for (item of starters; track $index) {
+        <div class="card">
+            <img src="{{item.img}}" alt="" width="100%">
+            <div class="card__content">
+              <p class="card__title">{{item.name}}</p>
+              <p class="card__description" style="color: white;">{{item.description}}</p>
+              <button class="btn btn-sm btn-warning">Añadir</button>
+      
+            </div>
+          </div>
+               
+    }
+    
+    </div>
+</section>
 
 
-        <div class="card card-compact bg-base-100 w-96 shadow-xl">
-            <figure>
-            <img
-                src="https://images.unsplash.com/photo-1700077103134-17a454ee5f09?q=80&w=1976&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt="Shoes" />
-            </figure>
-            <div class="card-body">
-            <h2 class="card-title">Shoes!</h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
-            <div class="card-actions justify-end">
-                <button class="btn btn-primary">Buy Now</button>
-            </div>
-            </div>
+
+
+
+<section>
+    <H2 style="text-align: center;">HAMBURGUESAS</H2>
+<div class="cards"> 
+@for (item of burgers; track $index) {
+    <div class="card">
+        <img src="{{item.img}}" alt="" width="100%">
+        <div class="card__content">
+          <p class="card__title">{{item.name}}</p>
+          <p class="card__description" style="color: white;">{{item.description}}</p>
+          <button class="btn btn-sm btn-warning">Añadir</button>
         </div>
-
-        <div class="card card-compact bg-base-100 w-96 shadow-xl">
-            <figure>
-            <img
-                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                alt="Shoes" />
-            </figure>
-            <div class="card-body">
-            <h2 class="card-title">Shoes!</h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
-            <div class="card-actions justify-end">
-                <button class="btn btn-primary">Buy Now</button>
-            </div>
-            </div>
-        </div>
-
-        <div class="card card-compact bg-base-100 w-96 shadow-xl">
-            <figure>
-            <img
-                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                alt="Shoes" />
-            </figure>
-            <div class="card-body">
-            <h2 class="card-title">Shoes!</h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
-            <div class="card-actions justify-end">
-                <button class="btn btn-primary">Buy Now</button>
-            </div>
-            </div>
-        </div>
-
-        <div class="card card-compact bg-base-100 w-96 shadow-xl">
-            <figure>
-            <img
-                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                alt="Shoes" />
-            </figure>
-            <div class="card-body">
-            <h2 class="card-title">Shoes!</h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
-            <div class="card-actions justify-end">
-                <button class="btn btn-primary">Buy Now</button>
-            </div>
-            </div>
-        </div>
-
-
-        <div class="card card-compact bg-base-100 w-96 shadow-xl">
-            <figure>
-            <img
-                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                alt="Shoes" />
-            </figure>
-            <div class="card-body">
-            <h2 class="card-title">Shoes!</h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
-            <div class="card-actions justify-end">
-                <button class="btn btn-primary">Buy Now</button>
-            </div>
-            </div>
-        </div>
-
+      </div>
+}
 
 </div>
+</section>
+
+
+<section>
+    <H2 style="text-align: center;">POSTRES</H2>
+<div class="cards"> 
+@for (item of desserts; track $index) {
+    <div class="card">
+        <img src="{{item.img}}" alt="" width="100%">
+        <div class="card__content">
+          <p class="card__title">{{item.name}}</p>
+          <p class="card__description" style="color: white;">{{item.description}}</p>
+          <button class="btn btn-sm btn-warning">Añadir</button>
+        </div>
+      </div>
+}
+
+</div>
+</section>
+
+
+
+

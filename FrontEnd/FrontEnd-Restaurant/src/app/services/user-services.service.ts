@@ -4,6 +4,9 @@ import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http'
 import { Observable, throwError } from 'rxjs';
 import { User } from '../models/User';
 import { catchError } from 'rxjs/operators';
+import { burgers } from '../data/food/burger.data';
+import { starters } from '../data/food/entrantes.data';
+import { dessert } from '../data/food/dessert.data';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +19,15 @@ export class UserServicesService {
 
     findAllReviews(): any[]{
       return reviews;
+    }
+    findAllBurgers(): any[]{
+      return burgers;
+    }
+    findAllStarters(): any[]{
+      return starters;
+    }
+    findAllDesserts(): any[]{
+      return dessert;
     }
 
     // Método para crear un nuevo usuario
