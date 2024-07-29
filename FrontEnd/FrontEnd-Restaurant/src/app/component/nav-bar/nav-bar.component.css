@@ -80,6 +80,22 @@
     width: 100%;
   }
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
   @media (max-width: 1024px) {
     .header .button {
       display: block;
@@ -613,6 +629,10 @@
     outline: 0;
   }
 
+  .dropdown{
+    margin: 20px;
+   
+  }
 
   /* Declara la fuente personalizada */
   @font-face {

@@ -3,6 +3,7 @@ package com.backend.system.restaurant.controllers;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.backend.system.restaurant.entities.Booking;
@@ -43,6 +45,20 @@ public class UserController {
     @GetMapping
     public List<User> findAllUsers() {
         return services.findAll();  // Retorna la página de usuarios
+        }
+
+        @GetMapping("/find")
+        public ResponseEntity<?> findUserByEmail(@RequestParam(required = false) String email) {
+            if (email != null) {
+                Optional<User> user = services.findByEmail(email);
+                if (user.isPresent()) {
+                    return ResponseEntity.ok(user.get());
+                } else {
+                    return ResponseEntity.notFound().build();
+                }
+            } else {
+                return ResponseEntity.badRequest().body("Email parameter is missing");
+            }
         }
 
      // Método privado para manejar los errores de validación

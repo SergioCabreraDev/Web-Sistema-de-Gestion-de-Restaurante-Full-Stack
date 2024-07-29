@@ -9,8 +9,6 @@
     <ul class="ul">
 
 
-
-
       <li class="">
         <a href="#certificaciones" class="a" (click)="closeMenu()">
           <div class="button-pedir">
@@ -87,14 +85,16 @@
 
 
             @if(login.isAuth){
-              <div class="collapse navbar-collapse justify-content-end" id="navbarNavAuth">
-                <span class="nav-item nav-link text-primary mx-3">
-                {{ login.user.username }}
-                <button
-                (click)="handlerLogout()"
-                class="btn btn-outline-success">Cerrar Sesion</button>
-              </span>
-            </div>
+              <div class="dropdown">
+                <div style="background-color: #FFB600; color: white;" tabindex="0" role="button" class="btn m-1">{{login.user.email}}</div>
+                <ul style="background-color: #FFB600; color: white;" tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                  <li><a [routerLink]="['/welcome']">¡Bienvenido!</a></li>
+                  @if (admin) {
+                    <li><a [routerLink]="['/bookings/see-bookings']">Lista de Reservas</a></li>   
+                  }
+                  <li><a (click)="handlerLogout()">Cerrar Sesion</a></li>
+                </ul>
+              </div>
             } 
 
     </ul>

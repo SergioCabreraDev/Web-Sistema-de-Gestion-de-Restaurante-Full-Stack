@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import com.backend.system.restaurant.entities.Role;
 import com.backend.system.restaurant.entities.User;
-import com.backend.system.restaurant.models.IUser;
 import com.backend.system.restaurant.respositories.RoleRepository;
 import com.backend.system.restaurant.respositories.UserRepository;
 
@@ -68,5 +67,10 @@ public class UserServicesImpl implements UserServices {
         }
         return roles;
     }
+
+        @Override
+        public Optional<User> findByEmail(String email) {
+            return repository.findByEmail(email);
+        }
 
 }

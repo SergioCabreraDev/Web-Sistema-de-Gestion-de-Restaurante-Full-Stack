@@ -1,5 +1,5 @@
-<form (ngSubmit)="createUser()" >
-    <span class="input-span">
+<form (ngSubmit)="createUser()">
+    
    
         <label for="email" class="label">Email</label>
         <input 
@@ -15,4 +15,6 @@
         <input class="submit" type="submit" value="Iniciar Sesion">
 
     <span class="span">No tienes cuenta? <a href="#" [routerLink]="['/users/register']" routerLinkActive="router-link-active" >Registrate</a></span>
+</form>
+    
 

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { User } from '../../models/User';
 
 @Component({
   selector: 'nav-bar',
@@ -12,6 +13,8 @@ import { AuthService } from '../../services/auth.service';
 export class NavBarComponent {
 
   menuActivo = false;
+
+  user!: User;
 
   constructor(
      private authService: AuthService,

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { reviews } from '../data/index-reviews';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { User } from '../models/User';
 import { catchError } from 'rxjs/operators';
@@ -24,6 +24,15 @@ export class UserServicesService {
         catchError(this.handleError)
       );
     }
+
+  // Método para encontrar un usuario por email
+  findUserByEmail(email: string): Observable<User> {
+    const params = new HttpParams().set('email', email);
+    return this.http.get<User>(`${this.urlUsers}/find`, { params }).pipe(
+      catchError(this.handleError)
+    );
+  }
+    
 
 
     private handleError(error: HttpErrorResponse) {
