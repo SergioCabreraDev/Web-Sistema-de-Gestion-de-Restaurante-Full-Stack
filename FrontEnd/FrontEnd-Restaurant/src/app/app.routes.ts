@@ -9,6 +9,7 @@ import { Forbidden403Component } from './component/forbidden403/forbidden403.com
 import { authGuard } from './guards/auth.guard';
 import { loginGuard } from './guards/login.guard';
 import { UserWelcomeComponent } from './component/login/user-welcome/user-welcome.component';
+import { DeliveryComponent } from './component/delivery/delivery.component';
 
 export const routes: Routes = [
     {
@@ -31,8 +32,8 @@ export const routes: Routes = [
     },
     {
         path: 'bookings',
-        component: BookingsComponent,
-        canActivate: [authGuard]
+        component: BookingsComponent
+
     },
     {
         path: 'bookings/see-bookings',
@@ -47,5 +48,9 @@ export const routes: Routes = [
     {
         path: 'welcome',
         component: UserWelcomeComponent
+    },
+    {
+        path: 'delivery',
+        component: DeliveryComponent
     }
 ];

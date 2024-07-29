@@ -26,6 +26,10 @@ export class BookingsServicesService {
             catchError(this.handleError)
           );
         }
+
+        remove(id: number): Observable<void>{
+          return this.http.delete<void>(`${this.urlBookings}/${id}`);
+        }
         
 
 

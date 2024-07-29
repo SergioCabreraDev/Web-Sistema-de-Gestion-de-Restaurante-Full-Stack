@@ -66,7 +66,7 @@ export class LoginComponent implements OnInit {
 
           this.authService.token = token;
           this.authService.user = login;
-          this.router.navigate(['/forbidden']);
+          this.router.navigate(['/welcome']);
         },
         error: error => {
           if (error.status == 401) {

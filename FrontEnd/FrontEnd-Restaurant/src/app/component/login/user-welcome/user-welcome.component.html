@@ -1,4 +1,12 @@
-<h2>¡Bienvenido {{login.user.email}}</h2>
-{{userDetails.name}}
-{{userDetails.lastName}}
-{{userDetails.password}}
+<div class="margins">
+<h2>¡Bienvenido {{userDetails.name + " " + userDetails.lastName}}! </h2> 
+<p>¡Bienvenido/a a nuestra comunidad! Estamos encantados de tenerte con nosotros y esperamos que disfrutes de todas las ventajas y oportunidades que ofrecemos. Si tienes alguna pregunta o necesitas ayuda, no dudes en contactarnos. ¡Que tengas una excelente experiencia!</p>
+<p><b>TIPO DE ROL: 
+    @if (admin) {
+        ADMIN
+    }@else {
+        USER
+    }
+    </b></p>
+</div>
+

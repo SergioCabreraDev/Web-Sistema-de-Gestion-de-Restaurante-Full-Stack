@@ -6,6 +6,7 @@ import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../../services/auth.service';
 import { User } from '../../../models/User';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-see-bookings',
@@ -31,45 +32,87 @@ export class SeeBookingsComponent implements OnInit {
     this.valueInputDate = this.today;
   }
 
-  // Método que se ejecuta una vez que el componente ha sido inicializado
   ngOnInit(): void {
-    // Llamar al servicio para obtener todas las reservas
     this.service.findAllBookings().subscribe(
       (data: Booking[]) => {
-        // Asignar los datos obtenidos a la variable bookings
         this.bookings = data;
-        
-        // Filtrar las reservas para la fecha seleccionada
         this.filterBookings();
+        this.deletePastBookings();
       },
       (error) => {
-        // Manejar cualquier error que ocurra al obtener las reservas
         console.error('Error fetching bookings', error);
       }
     );
   }
 
-  // Método para filtrar las reservas por la fecha seleccionada
   filterBookings(): void {
-    // Crear un objeto de fecha a partir de la fecha seleccionada
     const selectedDate = new Date(this.valueInputDate);
-    
-    // Filtrar las reservas para incluir solo las que coincidan con la fecha seleccionada
+
     this.filteredBookings = this.bookings.filter(item => {
-      // Crear un objeto de fecha a partir de la fecha de la reserva
       const bookingDate = new Date(item.date);
-      
-      // Comparar las fechas ignorando las diferencias de tiempo
       return bookingDate.toDateString() === selectedDate.toDateString();
     });
   }
 
+  deleteBookingById(id: number){
+    Swal.fire({
+      title: "¿Estas Seguro?",
+      text: "¿Quieres eliminar la reserva?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Si, Eliminar!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.service.remove(id).subscribe(
+          () => {
+            // Remover la reserva eliminada de las listas bookings y filteredBookings
+            this.bookings = this.bookings.filter(item => item.id !== id);
+            this.filteredBookings = this.filteredBookings.filter(item => item.id !== id);
     
-  // get login() {
-  //   return this.authService.user;
-  // }
+            console.warn("La reserva con id ("+ id + ") ha sido borrada")
+          },
+          (error) => {
+            console.error(`Error deleting booking with id ${id}`, error);
+          }
+        );
+        Swal.fire({
+          title: "Eliminada!",
+          text: "La reserva ha sido eliminada.",
+          icon: "success"
+        });
+      }
+    });
+    
+  }
 
-  // get admin() {
-  //   return this.authService.isAdmin();
-  // }
+  deletePastBookings() {
+    const now = new Date(); // Obtener la fecha y hora actuales
+    now.setHours(0, 0, 0, 0); // Establecer horas, minutos, segundos y milisegundos a cero
+  
+    for (const val of this.bookings) {
+      const bookingDate = new Date(val.date);
+      bookingDate.setHours(0, 0, 0, 0); // Establecer horas, minutos, segundos y milisegundos a cero
+  
+      // Verificar si la fecha de la reserva es anterior a la fecha actual (sin considerar la hora)
+      if (bookingDate.getTime() < now.getTime()) {
+        // Eliminar reserva
+        this.service.remove(val.id).subscribe(
+          () => {
+            // Remover la reserva eliminada de las listas bookings y filteredBookings
+            this.bookings = this.bookings.filter(item => item.id !== val.id);
+            this.filteredBookings = this.filteredBookings.filter(item => item.id !== val.id);
+            console.warn("La reserva con id ("+ val.id + ") ha sido borrada")
+          },
+          (error) => {
+            console.error(`Error deleting booking with id ${val.id}`, error);
+          }
+        );
+      }
+    }
+  }
+  
+  
+  
 }

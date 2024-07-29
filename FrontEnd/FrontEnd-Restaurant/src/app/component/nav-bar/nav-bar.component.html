@@ -10,7 +10,7 @@
 
 
       <li class="">
-        <a href="#certificaciones" class="a" (click)="closeMenu()">
+        <a [routerLink]="['/delivery']" href="#certificaciones" class="a" (click)="closeMenu()">
           <div class="button-pedir">
             <button class="btn">
               <span></span>
@@ -86,7 +86,10 @@
 
             @if(login.isAuth){
               <div class="dropdown">
-                <div style="background-color: #FFB600; color: white;" tabindex="0" role="button" class="btn m-1">{{login.user.email}}</div>
+                <div style="background-color: #FFB600; color: white;" tabindex="0" role="button" class="btn m-1">
+                  <svg width="24px" height="24px" stroke-width="1.5" viewBox="0 0 24 24" fill="#FFB600" xmlns="http://www.w3.org/2000/svg" color="#000000"><path d="M5 20V19C5 15.134 8.13401 12 12 12V12C15.866 12 19 15.134 19 19V20" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M12 12C14.2091 12 16 10.2091 16 8C16 5.79086 14.2091 4 12 4C9.79086 4 8 5.79086 8 8C8 10.2091 9.79086 12 12 12Z" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                  {{login.user.email}}
+                </div>
                 <ul style="background-color: #FFB600; color: white;" tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
                   <li><a [routerLink]="['/welcome']">¡Bienvenido!</a></li>
                   @if (admin) {
