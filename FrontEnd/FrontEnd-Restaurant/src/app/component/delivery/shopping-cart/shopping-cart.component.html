@@ -1,0 +1,92 @@
+<div class="boton-carrito">
+    <button data-quantity="0" onclick="my_modal_5.showModal()" class="btn-cart">
+      <svg class="icon-cart" viewBox="0 0 24.38 30.52" height="30.52" width="24.38" xmlns="http://www.w3.org/2000/svg">
+        <title>icon-cart</title>
+        <path transform="translate(-3.62 -0.85)" d="M28,27.3,26.24,7.51a.75.75,0,0,0-.76-.69h-3.7a6,6,0,0,0-12,0H6.13a.76.76,0,0,0-.76.69L3.62,27.3v.07a4.29,4.29,0,0,0,4.52,4H23.48a4.29,4.29,0,0,0,4.52-4ZM15.81,2.37a4.47,4.47,0,0,1,4.46,4.45H11.35a4.47,4.47,0,0,1,4.46-4.45Zm7.67,27.48H8.13a2.79,2.79,0,0,1-3-2.45L6.83,8.34h3V11a.76.76,0,0,0,1.52,0V8.34h8.92V11a.76.76,0,0,0,1.52,0V8.34h3L26.48,27.4a2.79,2.79,0,0,1-3,2.44Zm0,0"></path>
+      </svg>
+      <span class="quantity"></span>
+    </button>
+  </div>
+  
+
+
+  <dialog id="my_modal_5" class="modal">
+    <div class="modal-box w-11/12 max-w-5xl">
+  <div class="overflow-x-auto">
+  <table class="table">
+    <!-- head -->
+    <thead>
+      <tr>
+
+        <th>Producto</th>
+        <th>Punto de Carne</th>
+        <th>Guarnicion</th>
+        <th>Otra Info</th>
+        <th>Cantidad</th>
+        <th>Precio</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- row 4 -->
+      <tr>
+        <td>
+          <div class="flex items-center gap-3">
+            <div class="avatar">
+              <div class="mask mask-squircle h-12 w-12">
+                <img
+                  src="https://www.goiko.com/es/wp-content/uploads/2017/02/Chipotle_1200x600px-340x340.png"
+                  alt="Avatar Tailwind CSS Component" />
+              </div>
+            </div>
+            <div>
+              <div class="font-bold">Barbacoa Especial</div>
+              <div class="text-sm opacity-50">Burger</div>
+            </div>
+          </div>
+        </td>
+        <td>
+          <span class="badge badge-ghost badge-sm">Poco Hecha</span>
+        </td>
+        <th>
+            <button class="btn btn-ghost btn-xs">Patatas Fritas</button>
+          </th>
+        <td>Sin Pepinillo</td>
+        <td>1</td>
+        <td>15€</td>
+        <td>
+            <button class="delete-button">
+                <svg class="delete-svgIcon" viewBox="0 0 448 512">
+                                  <path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"></path>
+                                </svg>
+              </button>
+        </td>
+
+      </tr>
+    </tbody>
+    <!-- foot -->
+    <tfoot>
+      <tr>
+
+      </tr>
+    </tfoot>
+  </table>
+</div>
+
+
+      <div class="modal-action">
+        <form method="dialog">
+          <!-- if there is a button, it will close the modal -->
+  
+  
+          <button class="Btn">
+            Pay
+            <svg class="svgIcon" viewBox="0 0 576 512"><path d="M512 80c8.8 0 16 7.2 16 16v32H48V96c0-8.8 7.2-16 16-16H512zm16 144V416c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V224H528zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm56 304c-13.3 0-24 10.7-24 24s10.7 24 24 24h48c13.3 0 24-10.7 24-24s-10.7-24-24-24H120zm128 0c-13.3 0-24 10.7-24 24s10.7 24 24 24H360c13.3 0 24-10.7 24-24s-10.7-24-24-24H248z"></path></svg>
+          </button>
+  
+  
+  
+          <button class="btn">Cancelar</button>
+        </form>
+      </div>
+    </div>
+  </dialog>

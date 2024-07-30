@@ -1,3 +1,4 @@
+<app-shopping-cart></app-shopping-cart>
 
 <section>
     <H2 style="text-align: center;">ENTRANTES</H2>
@@ -8,8 +9,12 @@
             <div class="card__content">
               <p class="card__title">{{item.name}}</p>
               <p class="card__description" style="color: white;">{{item.description}}</p>
-              <button class="btn btn-sm btn-warning">Añadir</button>
-      
+              <p class="card__description font-bold" style="color: white;">{{item.price}} €</p>
+              
+              <button class="btn btn-sm btn-warning" (click)="transferInfo(item)" onclick="my_modal_4.showModal()">Añadir</button>
+ 
+              
+
             </div>
           </div>
                
@@ -18,6 +23,29 @@
     </div>
 </section>
 
+
+<dialog id="my_modal_4" class="modal">
+  <div class="modal-box w-11/12 max-w-5xl">
+    <h3 style="font-size: 25px;" class="text-lg font-bold">{{selectedProduct?.name}}</h3>
+    <p style="font-size: 15px;" class="py-4">{{selectedProduct?.description}}</p>
+    <p class="card__description font-bold" style="color: white;">{{selectedProduct?.price}} €</p>
+    @if (selectedProduct?.type == 'burgers') {
+      <select class="select select-warning w-full max-w-xs">
+        <option disabled selected>Elige La Guarnicion</option>
+        <option>Patatas Fritas</option>
+        <option>Boniato Frito</option>
+        <option>Sin Guarnicion</option>
+      </select>
+    }
+    <div class="modal-action">
+      <form method="dialog">
+        <!-- if there is a button, it will close the modal -->
+        <button id="button-add" class="btn btn-outline btn-success">Añadir al Carrito</button> 
+        <button class="btn">Cancelar</button>
+      </form>
+    </div>
+  </div>
+</dialog>
 
 
 
@@ -31,7 +59,9 @@
         <div class="card__content">
           <p class="card__title">{{item.name}}</p>
           <p class="card__description" style="color: white;">{{item.description}}</p>
-          <button class="btn btn-sm btn-warning">Añadir</button>
+          <p class="card__description" style="color: white;">{{item.price}}</p>
+          <button class="btn btn-sm btn-warning" (click)="transferInfo(item)" onclick="my_modal_4.showModal()">Añadir</button>
+
         </div>
       </div>
 }
@@ -49,7 +79,7 @@
         <div class="card__content">
           <p class="card__title">{{item.name}}</p>
           <p class="card__description" style="color: white;">{{item.description}}</p>
-          <button class="btn btn-sm btn-warning">Añadir</button>
+          <button class="btn btn-sm btn-warning" (click)="transferInfo(item)" onclick="my_modal_4.showModal()">Añadir</button>
         </div>
       </div>
 }

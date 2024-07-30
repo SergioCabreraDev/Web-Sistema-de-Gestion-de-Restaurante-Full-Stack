@@ -31,10 +31,6 @@ export class LoginComponent implements OnInit {
       console.log(user);
     });
 
-    // Check if running in the browser before accessing sessionStorage
-    if (typeof window !== 'undefined' && window.sessionStorage) {
-      // Your sessionStorage code here
-    }
   }
 
   createUser() {
