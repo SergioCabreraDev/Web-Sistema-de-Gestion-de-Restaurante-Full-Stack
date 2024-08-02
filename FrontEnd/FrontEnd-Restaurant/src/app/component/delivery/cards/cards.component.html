@@ -12,9 +12,6 @@
               <p class="card__description font-bold" style="color: white;">{{item.price}} €</p>
               
               <button class="btn btn-sm btn-warning" (click)="transferInfo(item)" onclick="my_modal_4.showModal()">Añadir</button>
- 
-              
-
             </div>
           </div>
                
@@ -29,23 +26,41 @@
     <h3 style="font-size: 25px;" class="text-lg font-bold">{{selectedProduct?.name}}</h3>
     <p style="font-size: 15px;" class="py-4">{{selectedProduct?.description}}</p>
     <p class="card__description font-bold" style="color: white;">{{selectedProduct?.price}} €</p>
-    @if (selectedProduct?.type == 'burgers') {
-      <select class="select select-warning w-full max-w-xs">
-        <option disabled selected>Elige La Guarnicion</option>
-        <option>Patatas Fritas</option>
-        <option>Boniato Frito</option>
-        <option>Sin Guarnicion</option>
+    <div *ngIf="selectedProduct?.type == 'burgers'">
+      <br>
+      <label for="Guarnicion">Punto de la Carne:</label>
+      <br>
+      <select [(ngModel)]="selectedProduct.point" (ngModelChange)="validateSelection()" class="select select-warning w-full max-w-xs">
+        <option disabled selected>Elige el Punto de la Carne</option>
+        <option value="cruda">Cruda</option>
+        <option value="poco_hecha">Poco Hecha</option>
+        <option value="al_punto">Al Punto</option>
+        <option value="hecha">Hecha</option>
+        <option value="muy_hecha">Muy Hecha</option>
       </select>
-    }
+      <div *ngIf="errors.point" class="text-red-500">Por favor, selecciona el punto de la carne.</div>
+
+      <br>
+      <label for="Guarnicion">Guarnición:</label>
+      <br>
+      <select [(ngModel)]="selectedProduct.garrison" (ngModelChange)="validateSelection()" class="select select-warning w-full max-w-xs">
+        <option disabled selected>Elige La Guarnición</option>
+        <option value="patatas_fritas">Patatas Fritas</option>
+        <option value="boniato">Boniato Frito</option>
+        <option value="sin_guarnicion">Sin Guarnición</option>
+      </select>
+      <div *ngIf="errors.garrison" class="text-red-500">Por favor, selecciona una guarnición.</div>
+    </div>
+
     <div class="modal-action">
       <form method="dialog">
-        <!-- if there is a button, it will close the modal -->
-        <button id="button-add" class="btn btn-outline btn-success">Añadir al Carrito</button> 
+        <button id="button-add" class="btn btn-outline btn-success" [disabled]="isSubmitDisabled" (click)="emitProduct()">Añadir al Carrito</button>
         <button class="btn">Cancelar</button>
       </form>
     </div>
   </div>
 </dialog>
+
 
 
 
@@ -59,7 +74,7 @@
         <div class="card__content">
           <p class="card__title">{{item.name}}</p>
           <p class="card__description" style="color: white;">{{item.description}}</p>
-          <p class="card__description" style="color: white;">{{item.price}}</p>
+          <p class="card__description" style="color: white;">{{item.price}} €</p>
           <button class="btn btn-sm btn-warning" (click)="transferInfo(item)" onclick="my_modal_4.showModal()">Añadir</button>
 
         </div>
@@ -79,6 +94,7 @@
         <div class="card__content">
           <p class="card__title">{{item.name}}</p>
           <p class="card__description" style="color: white;">{{item.description}}</p>
+          <p class="card__description" style="color: white;">{{item.price}} €</p>
           <button class="btn btn-sm btn-warning" (click)="transferInfo(item)" onclick="my_modal_4.showModal()">Añadir</button>
         </div>
       </div>
