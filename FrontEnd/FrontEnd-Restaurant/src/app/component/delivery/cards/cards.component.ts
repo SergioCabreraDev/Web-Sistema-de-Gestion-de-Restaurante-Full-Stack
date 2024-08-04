@@ -7,6 +7,7 @@ import { ShoppingCartComponent } from '../shopping-cart/shopping-cart.component'
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SharingDataService } from '../../../services/sharing-data.service';
+import { Drink } from '../../../models/food/drink';
 
 @Component({
   selector: 'app-cards',
@@ -21,6 +22,7 @@ export class CardsComponent implements OnInit {
   burgers: Burgers[] = [];
   starters: Starters[] = [];
   desserts: Desserts[] = [];
+  drinks: Drink[] = [];
 
   // Variable para almacenar el producto actualmente seleccionado
   selectedProduct: any = undefined;
@@ -42,6 +44,8 @@ export class CardsComponent implements OnInit {
     this.burgers = this.service.findAllBurgers();
     this.starters = this.service.findAllStarters();
     this.desserts = this.service.findAllDesserts();
+    this.drinks = this.service.findAllDrinks();
+
   }
 
   // Método para manejar la selección de un producto

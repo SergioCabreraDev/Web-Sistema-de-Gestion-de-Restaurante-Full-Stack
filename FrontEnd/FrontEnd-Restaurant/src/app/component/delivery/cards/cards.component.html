@@ -10,7 +10,7 @@
               <p class="card__title">{{item.name}}</p>
               <p class="card__description" style="color: white;">{{item.description}}</p>
               <p class="card__description font-bold" style="color: white;">{{item.price}} €</p>
-              
+             
               <button class="btn btn-sm btn-warning" (click)="transferInfo(item)" onclick="my_modal_4.showModal()">Añadir</button>
             </div>
           </div>
@@ -98,6 +98,25 @@
           <button class="btn btn-sm btn-warning" (click)="transferInfo(item)" onclick="my_modal_4.showModal()">Añadir</button>
         </div>
       </div>
+}
+
+</div>
+</section>
+
+
+
+<section>
+  <H2 style="text-align: center;">Bebidas</H2>
+<div class="cards"> 
+@for (item of drinks; track $index) {
+  <div class="card">
+      <img src="{{item.img}}" alt="" width="100%">
+      <div class="card__content">
+        <p class="card__title">{{item.name}}</p>
+        <p class="card__description" style="color: white;">{{item.price}} €</p>
+        <button class="btn btn-sm btn-warning" (click)="transferInfo(item)" onclick="my_modal_4.showModal()">Añadir</button>
+      </div>
+    </div>
 }
 
 </div>

@@ -7,6 +7,7 @@ import { catchError } from 'rxjs/operators';
 import { burgers } from '../data/food/burger.data';
 import { starters } from '../data/food/entrantes.data';
 import { dessert } from '../data/food/dessert.data';
+import { drinks } from '../data/food/drinks.data';
 
 
 @Injectable({
@@ -29,6 +30,9 @@ export class UserServicesService {
     }
     findAllDesserts(): any[]{
       return dessert;
+    }
+    findAllDrinks(): any[]{
+      return drinks;
     }
 
     // Método para crear un nuevo usuario
