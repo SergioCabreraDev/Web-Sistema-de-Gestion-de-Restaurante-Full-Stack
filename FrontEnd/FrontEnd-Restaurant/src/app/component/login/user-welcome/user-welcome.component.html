@@ -10,3 +10,12 @@
     </b></p>
 </div>
 
+@for (item of orders; track $index) {
+    <li>{{item.id}}</li>
+    @for (item of item.products; track $index) {
+            {{item.name}}
+    }  
+}
+
+
+

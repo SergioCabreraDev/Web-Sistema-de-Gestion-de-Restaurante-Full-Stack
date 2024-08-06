@@ -1,7 +1,8 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Order } from '../models/order';
 import { catchError, Observable, throwError } from 'rxjs';
+import { User } from '../models/User';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,14 @@ export class OrderServicesService {
         catchError(this.handleError)
       );
     }
+  // Método para encontrar un usuario por email
+  findOderByNumber(phoneNumber: string): Observable<Order[]> {
+    const params = new HttpParams().set('phoneNumber', phoneNumber);
+    return this.http.get<Order[]>(`${this.urlOrder}/find`, { params }).pipe(
+      catchError(this.handleError)
+    );
+  }
+
 
 
     private handleError(error: HttpErrorResponse) {

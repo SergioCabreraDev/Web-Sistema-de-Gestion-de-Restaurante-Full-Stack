@@ -3,11 +3,14 @@ import { AuthService } from '../../../services/auth.service';
 import { Router } from '@angular/router';
 import { UserServicesService } from '../../../services/user-services.service';
 import { User } from '../../../models/User';
+import { OrderServicesService } from '../../../services/order-services.service';
+import { Order } from '../../../models/order';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-user-welcome',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './user-welcome.component.html',
   styleUrl: './user-welcome.component.css'
 })
@@ -15,14 +18,21 @@ export class UserWelcomeComponent implements OnInit {
 
 
   userDetails!: User;
+  orders: any[]= [];
 
   constructor(
     private authService: AuthService,
     private userService: UserServicesService,
-    private router: Router
- ){}
+    private router: Router,
+    private orderService: OrderServicesService
+ ){
+
+  
+ }
   ngOnInit(): void {
+ 
     this.getInfoUser();
+   
   }
 
 
@@ -42,6 +52,9 @@ getInfoUser() {
         console.log('Usuario encontrado:', user);
         // Aquí puedes manejar la respuesta, por ejemplo, guardando los datos del usuario en una variable
         this.userDetails = user;
+        this.getOrders();
+        
+        
       },
       (error) => {
         console.error('Error al obtener el usuario:', error);
@@ -51,6 +64,25 @@ getInfoUser() {
   } else {
     console.warn('Email del usuario no disponible');
   }
+}
+
+getOrders() {
+  this.orderService.findOderByNumber(this.userDetails.phoneNumber).subscribe(
+    (orders) => {
+      // Convertir el campo 'products' de string a objeto
+      this.orders = orders.map(order => ({
+        ...order,
+        products: JSON.parse(order.products) // Asegúrate de esta conversión
+      })
+    
+    
+    );
+    console.log(this.orders)
+    },
+    (error) => {
+      console.error('Error al obtener las órdenes:', error);
+    }
+  );
 }
 
 }
