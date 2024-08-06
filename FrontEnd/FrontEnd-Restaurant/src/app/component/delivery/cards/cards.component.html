@@ -9,9 +9,9 @@
             <div class="card__content">
               <p class="card__title">{{item.name}}</p>
               <p class="card__description" style="color: white;">{{item.description}}</p>
-              <p class="card__description font-bold" style="color: white;">{{item.price}} €</p>
+              <p class="card__description font-bold" style="color: white; font-family: '4';">{{item.price}} €</p>
              
-              <button class="btn btn-sm btn-warning" (click)="transferInfo(item)" onclick="my_modal_4.showModal()">Añadir</button>
+              <button class="btn btn-sm btn-warning" style="background-color: #FFB600; border: #FFB600;" (click)="transferInfo(item)" onclick="my_modal_4.showModal()">Añadir</button>
             </div>
           </div>
                
@@ -23,12 +23,12 @@
 
 <dialog id="my_modal_4" class="modal">
   <div class="modal-box w-11/12 max-w-5xl">
-    <h3 style="font-size: 25px;" class="text-lg font-bold">{{selectedProduct?.name}}</h3>
-    <p style="font-size: 15px;" class="py-4">{{selectedProduct?.description}}</p>
+    <h3 style="font-size: 25px; font-family: '4';" class="text-lg font-bold">{{selectedProduct?.name}}</h3>
+    <p style="font-size: 15px; font-family: '1';" class="py-4">{{selectedProduct?.description}}</p>
     <p class="card__description font-bold" style="color: white;">{{selectedProduct?.price}} €</p>
     <div *ngIf="selectedProduct?.type == 'burgers'">
       <br>
-      <label for="Guarnicion">Punto de la Carne:</label>
+      <label for="Guarnicion" style="font-family: '3'; color: white;">Punto de la Carne:</label>
       <br>
       <select [(ngModel)]="selectedProduct.point" (ngModelChange)="validateSelection()" class="select select-warning w-full max-w-xs">
         <option disabled selected>Elige el Punto de la Carne</option>
@@ -38,10 +38,10 @@
         <option value="hecha">Hecha</option>
         <option value="muy_hecha">Muy Hecha</option>
       </select>
-      <div *ngIf="errors.point" class="text-red-500">Por favor, selecciona el punto de la carne.</div>
+      <div *ngIf="errors.point" style="font-family: '3';" class="text-red-500">Por favor, selecciona el punto de la carne.</div>
 
       <br>
-      <label for="Guarnicion">Guarnición:</label>
+      <label for="Guarnicion" style="font-family: '3'; color: white;">Guarnición:</label>
       <br>
       <select [(ngModel)]="selectedProduct.garrison" (ngModelChange)="validateSelection()" class="select select-warning w-full max-w-xs">
         <option disabled selected>Elige La Guarnición</option>
@@ -49,7 +49,7 @@
         <option value="boniato">Boniato Frito</option>
         <option value="sin_guarnicion">Sin Guarnición</option>
       </select>
-      <div *ngIf="errors.garrison" class="text-red-500">Por favor, selecciona una guarnición.</div>
+      <div *ngIf="errors.garrison" style="font-family: '3';" class="text-red-500">Por favor, selecciona una guarnición.</div>
     </div>
 
     <div class="modal-action">
@@ -74,8 +74,8 @@
         <div class="card__content">
           <p class="card__title">{{item.name}}</p>
           <p class="card__description" style="color: white;">{{item.description}}</p>
-          <p class="card__description" style="color: white;">{{item.price}} €</p>
-          <button class="btn btn-sm btn-warning" (click)="transferInfo(item)" onclick="my_modal_4.showModal()">Añadir</button>
+          <p class="card__description" style="color: white; font-family: '4';">{{item.price}} €</p>
+          <button class="btn btn-sm btn-warning" style="background-color: #FFB600; border: #FFB600;" (click)="transferInfo(item)" onclick="my_modal_4.showModal()">Añadir</button>
 
         </div>
       </div>
@@ -94,8 +94,8 @@
         <div class="card__content">
           <p class="card__title">{{item.name}}</p>
           <p class="card__description" style="color: white;">{{item.description}}</p>
-          <p class="card__description" style="color: white;">{{item.price}} €</p>
-          <button class="btn btn-sm btn-warning" (click)="transferInfo(item)" onclick="my_modal_4.showModal()">Añadir</button>
+          <p class="card__description" style="color: white; font-family: '4';">{{item.price}} €</p>
+          <button class="btn btn-sm btn-warning" style="background-color: #FFB600; border: #FFB600;" (click)="transferInfo(item)" onclick="my_modal_4.showModal()">Añadir</button>
         </div>
       </div>
 }
@@ -107,14 +107,14 @@
 
 <section>
   <H2 style="text-align: center;">Bebidas</H2>
-<div class="cards"> 
+<div class="cards" > 
 @for (item of drinks; track $index) {
-  <div class="card">
-      <img src="{{item.img}}" alt="" width="100%">
+  <div class="card" style="background-color: rgb(19, 19, 19);">
+    <p class="card__title">{{item.name}}</p>
       <div class="card__content">
-        <p class="card__title">{{item.name}}</p>
-        <p class="card__description" style="color: white;">{{item.price}} €</p>
-        <button class="btn btn-sm btn-warning" (click)="transferInfo(item)" onclick="my_modal_4.showModal()">Añadir</button>
+      <p class="card__title">{{item.name}}</p>
+        <p class="card__description" style="color: white; font-family: '4';">{{item.price}} €</p>
+        <button class="btn btn-sm btn-warning" style="background-color: #FFB600; border: #FFB600;" (click)="transferInfo(item)" onclick="my_modal_4.showModal()">Añadir</button>
       </div>
     </div>
 }

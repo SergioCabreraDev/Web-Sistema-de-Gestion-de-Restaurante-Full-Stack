@@ -10,6 +10,7 @@ import { AuthService } from '../services/auth.service';
 
 // Importa el servicio 'Router' para navegar a diferentes rutas.
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 // Define un guardia de rutas llamado 'authGuard' que implementa la interfaz CanActivateFn.
 // Este guardia se asegura de que el usuario esté autenticado y tenga permisos para acceder a la ruta.
@@ -27,17 +28,14 @@ export const authGuard: CanActivateFn = (route, state) => {
       router.navigate(['/login']);
       return false;
     }
-    // Si el token no ha expirado, verifica si el usuario tiene permisos de administrador utilizando el método 'isAdmin()'.
-    if (!service.isAdmin()) {
-      // Si el usuario no es administrador, navega a una página de acceso restringido (página de prohibido) y bloquea el acceso.
-      router.navigate(['/forbidden']);
-      return false;
-    }
+
     // Si el usuario está autenticado y tiene permisos de administrador, permite el acceso a la ruta.
     return true;
   }
+
   // Si el usuario no está autenticado, navega a la página de inicio de sesión y bloquea el acceso.
 router.navigate(['/login']);
+Swal.fire("Para poder acceder primero Inicia Sesion");
 return false;
 };
 

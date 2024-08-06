@@ -51,6 +51,7 @@ export const routes: Routes = [
     },
     {
         path: 'delivery',
-        component: DeliveryComponent
+        component: DeliveryComponent,
+        canActivate: [authGuard]
     }
 ];

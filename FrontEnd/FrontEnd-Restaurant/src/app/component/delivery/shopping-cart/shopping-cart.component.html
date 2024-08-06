@@ -6,7 +6,7 @@
       </svg>
   
     </button>
-    <span style="display: flex; justify-content: center;" class="quantity">{{numeroDeObjetos}}</span>
+    <span style="display: flex; justify-content: center; font-family: '4';" class="quantity">{{numeroDeObjetos}}</span>
   </div>
   
 
@@ -98,12 +98,20 @@
       <tr>
         <td></td>
         <td></td>
-        <td style="color: white; font-size: 14px;">TOTAL:</td>
-        <td style="color: white; font-size: 14px;">{{total}}€</td>
+        <td style="color: white; font-size: 14px; font-family: '4';">TOTAL:</td>
+        <td style="color: white; font-size: 14px; font-family: '4';">{{total}}€</td>
       </tr>
+     
     </tfoot>
   </table>
 </div>
+
+<div style="margin: 3rem 0rem;">
+<input type="text" placeholder="Tu Direccion" class="input input-bordered w-full max-w-xs"  style="margin-right: 2rem;" [(ngModel)]="direccion" required/>
+<input type="text" placeholder="Codigo Postal" class="input input-bordered w-full max-w-xs" [(ngModel)]="cp" required/>
+
+</div>
+
 
 
       <div class="modal-action">
@@ -121,5 +129,6 @@
           
 
       </div>
+      
     </div>
   </dialog>

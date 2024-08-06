@@ -25,13 +25,13 @@ export class UserWelcomeComponent implements OnInit {
     this.getInfoUser();
   }
 
- get login() {
-  return this.authService.user;
-}
+
 get admin() {
   return this.authService.isAdmin();
 }
-
+get login() {
+  return this.authService.user;
+}
 
 getInfoUser() {
   const email = this.login.user?.email;  // Suponiendo que `email` es una propiedad del usuario logueado
