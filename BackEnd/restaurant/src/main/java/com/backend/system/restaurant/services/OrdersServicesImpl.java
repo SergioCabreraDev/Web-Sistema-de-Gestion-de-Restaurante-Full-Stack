@@ -1,5 +1,8 @@
 package com.backend.system.restaurant.services;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +28,20 @@ public class OrdersServicesImpl implements OrdersServices {
 
         // Guarda el en el repositorio y lo devuelve
         return repository.save(order);
+    }
+
+
+
+    @Override
+    public List<Orders> findAll() {
+      return repository.findAll();
+    }
+
+
+
+    @Override
+    public List<Orders> findByPhoneNumber(String phoneNumber) {
+        return repository.findByPhoneNumber(phoneNumber);
     }
 
 
