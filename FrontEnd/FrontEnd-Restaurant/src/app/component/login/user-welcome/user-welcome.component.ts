@@ -17,8 +17,10 @@ import { CommonModule } from '@angular/common';
 export class UserWelcomeComponent implements OnInit {
 
 
+
   userDetails!: User;
   orders: any[]= [];
+  orderSelect: any = [];
 
   constructor(
     private authService: AuthService,
@@ -84,5 +86,12 @@ getOrders() {
     }
   );
 }
+
+
+transferOrder(_t16: any) {
+  console.log(_t16.products);
+  this.orderSelect = _t16.products;
+ 
+  }
 
 }

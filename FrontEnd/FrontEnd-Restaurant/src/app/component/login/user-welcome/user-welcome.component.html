@@ -8,14 +8,106 @@
         USER
     }
     </b></p>
+
+    <h3 style="margin-top: 2rem;">Tus Pedidos</h3>
+    <div class="overflow-x-auto">
+        <table class="table">
+          <!-- head -->
+          <thead>
+            <tr>
+              <th>id</th>
+              <th>Fecha del Pedido</th>
+              <th>Hora del Pedido</th>
+              <th>Precio Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (item of orders; track $index) {
+            <!-- row 1 -->
+            <tr>
+                <td>{{item.id}}</td>
+                <td>{{item.date}}</td>
+                <td>{{item.time}}</td>
+                <td>{{item.price}} €</td>
+                <td> <button class="btn btn-sm" (click)="transferOrder(item)" onclick="my_modal_1.showModal()">Ver Detalles</button>
+                
+                </td>
+               
+            </tr>
+           
+            }
+          </tbody>
+        </table>
+      </div>
 </div>
 
-@for (item of orders; track $index) {
-    <li>{{item.id}}</li>
-    @for (item of item.products; track $index) {
-            {{item.name}}
-    }  
-}
+<!-- Open the modal using ID.showModal() method -->
+
+<dialog id="my_modal_1" class="modal">
+  <div class="modal-box">
+    <table class="table">
+      <!-- head -->
+      <thead>
+        <tr>
+  
+          <th>Producto</th>
+          <th>Guarnicion</th>
+          <th>Otra Info</th>
+          <th>Precio</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (item of orderSelect; track $index) {
+        <!-- row 4 -->
+        <tr>
+          <td>
+            <div class="flex items-center gap-3">
+              <div class="avatar">
+               
+                <div class="mask mask-squircle h-12 w-12">
+                  <img
+                    src="{{item.img}}"
+                    alt="Avatar Tailwind CSS Component" />
+                </div>
+              </div>
+              <div>
+                <div class="font-bold">{{item.name}}</div>
+                <div class="text-sm opacity-50">{{item.type}}</div>
+              </div>
+            </div>
+          </td>
+          @if (item.type == "burgers") {
+            
+            <td>
+              <button class="btn btn-ghost btn-xs">{{item.garrison}}</button>
+            </td>
+            <td><span class="badge badge-ghost badge-sm">{{item.point}}</span></td>
+          }@else {
+            <td></td>
+            <td></td>
+          }
+          <td>{{item.price}}€</td>
+        
+       
+        </tr>
+      }
+      </tbody>
+   
+      <!-- foot -->
+      <tfoot>
+       
+      </tfoot>
+    </table>
+    <div class="modal-action">
+      <form method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
+
+
 
 
 
