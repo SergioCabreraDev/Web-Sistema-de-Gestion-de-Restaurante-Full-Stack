@@ -10,6 +10,7 @@ import { authGuard } from './guards/auth.guard';
 import { loginGuard } from './guards/login.guard';
 import { UserWelcomeComponent } from './component/login/user-welcome/user-welcome.component';
 import { DeliveryComponent } from './component/delivery/delivery.component';
+import { SeeOrdersComponent } from './component/delivery/see-orders/see-orders.component';
 
 export const routes: Routes = [
     {
@@ -38,6 +39,12 @@ export const routes: Routes = [
     {
         path: 'bookings/see-bookings',
         component: SeeBookingsComponent, 
+        canActivate: [authGuard]
+
+    },
+    {
+        path: 'delivery/see-orders',
+        component: SeeOrdersComponent, 
         canActivate: [authGuard]
 
     },

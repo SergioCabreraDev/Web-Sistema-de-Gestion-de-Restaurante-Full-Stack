@@ -76,7 +76,7 @@ getOrders() {
         ...order,
         products: JSON.parse(order.products) // Asegúrate de esta conversión
       })
-    
+
     
     );
     console.log(this.orders)

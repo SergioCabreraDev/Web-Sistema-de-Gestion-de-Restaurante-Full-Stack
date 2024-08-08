@@ -93,7 +93,8 @@
                 <ul style="background-color: #FFB600; color: white;" tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
                   <li><a [routerLink]="['/welcome']">¡Bienvenido!</a></li>
                   @if (admin) {
-                    <li><a [routerLink]="['/bookings/see-bookings']">Lista de Reservas</a></li>   
+                    <li><a [routerLink]="['/bookings/see-bookings']">Lista de Reservas</a></li> 
+                    <li><a [routerLink]="['/delivery/see-orders']">Lista de Pedidos</a></li> 
                   }
                   <li><a (click)="handlerLogout()">Cerrar Sesion</a></li>
                 </ul>
