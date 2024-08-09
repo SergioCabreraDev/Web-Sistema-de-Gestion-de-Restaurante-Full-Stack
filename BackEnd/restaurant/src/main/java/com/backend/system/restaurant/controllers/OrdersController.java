@@ -12,7 +12,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,6 +26,8 @@ import com.backend.system.restaurant.entities.User;
 import com.backend.system.restaurant.respositories.OrdersRepository;
 import com.backend.system.restaurant.services.OrdersServices;
 
+import jakarta.validation.Valid;
+
 @CrossOrigin(originPatterns = { "http://localhost:4200" }) // Permite peticiones desde localhost:4200 (Angular frontend)
 @RestController
 @RequestMapping("/api/orders")
@@ -34,6 +38,9 @@ public class OrdersController {
 
     @PostMapping
     public ResponseEntity<?> crearOrder(@Validated @RequestBody Orders order, BindingResult result) {
+
+        order.setState("Pendiente");
+
         if (result.hasErrors()) {
             return validation(result);
         }
@@ -57,6 +64,21 @@ public class OrdersController {
         } else {
             return ResponseEntity.badRequest().body("Phone Number parameter is missing");
         }
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<?> update(@Valid @RequestBody Orders order, BindingResult result, @PathVariable Long id, @RequestParam(required = false) String state) {
+
+        if (result.hasErrors()) {
+            return validation(result);
+        }
+        
+        Optional<User> userOptional = service.update(user, id);
+
+        if (userOptional.isPresent()) {
+            return ResponseEntity.ok(userOptional.orElseThrow());
+        }
+        return ResponseEntity.notFound().build();
     }
 
     // Método privado para manejar los errores de validación

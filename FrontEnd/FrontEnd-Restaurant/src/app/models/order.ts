@@ -6,5 +6,6 @@ export class Order{
     phoneNumber!: string;
     date!: string;
     time!: string;
+    state!: string;
 
 }

@@ -38,4 +38,8 @@ public class Orders {
     @Getter @Setter
     String time;
 
+    @Getter @Setter
+    String state;
+
+
 }

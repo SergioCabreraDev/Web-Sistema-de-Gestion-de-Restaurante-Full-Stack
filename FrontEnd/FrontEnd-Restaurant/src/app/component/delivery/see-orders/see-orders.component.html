@@ -10,7 +10,9 @@
             <th>TELEFONO</th>
             <th>FECHA</th>
             <th>HORA</th>
-            <th></th>
+            <th>DETALLES</th>
+            <th>ESTADO</th>
+    
           
           </tr>
         </thead>
@@ -33,18 +35,32 @@
               </div>
             </td>
           </tr>
-          <tr *ngFor="let item of orders">
-            <th>{{item.id}}</th>
-            <td>{{item.direction}}</td>
-            <td>{{item.phoneNumber}}</td>
-            <td>{{item.date}}</td>
-            <td>{{item.time}}</td>
-            <td> <button class="btn btn-sm" (click)="transferOrder(item)" onclick="my_modal_1.showModal()">Ver Detalles</button></td>
-            <td>
-              <label class="cyberpunk-checkbox-label">
-              <input type="checkbox" class="cyberpunk-checkbox">
-              Hecho</label>
-            </td>
+          <tr *ngFor="let item of orderFiltered">
+    
+              <th>{{item.id}}</th>
+              <td>{{item.direction}}</td>
+              <td>{{item.phoneNumber}}</td>
+              <td>{{item.date}}</td>
+              <td>{{item.time}}</td>
+              <td> <button class="btn btn-sm" (click)="transferOrder(item)" onclick="my_modal_1.showModal()">Ver Detalles</button></td>
+              <td style="color: red;">
+                @if (item.state == "Pendiente") {
+                 <b>{{item.state}}</b>
+                }@else{
+                  <b>{{item.state}}</b>
+                }
+              </td>
+              <td><div class="checkbox-wrapper-46">
+                <input type="checkbox" id="cbx-46" class="inp-cbx" (change)="onCheckboxChange($event)" />
+                <label for="cbx-46" class="cbx"
+                  ><span>
+                    <svg viewBox="0 0 12 10" height="10px" width="12px">
+                      <polyline points="1.5 6 4.5 9 10.5 1"></polyline></svg></span
+                  ><span></span>
+                </label>
+              </div></td>
+            
+           
           </tr>
         </tbody>
       </table>

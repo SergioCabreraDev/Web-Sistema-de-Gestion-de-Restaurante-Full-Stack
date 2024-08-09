@@ -37,12 +37,34 @@ public class OrdersServicesImpl implements OrdersServices {
       return repository.findAll();
     }
 
-
+    @Override
+    public Optional<Orders> findById(Long id) {
+        return repository.findById(id);
+    }
 
     @Override
     public List<Orders> findByPhoneNumber(String phoneNumber) {
         return repository.findByPhoneNumber(phoneNumber);
     }
+
+    @Override
+    @Transactional
+    public Optional<Orders> update(Orders order, Long id, String state) {
+
+        Optional<Orders> optionalOrder = repository.findById(id);
+
+        if (optionalOrder.isPresent()) {
+            Orders orderdb = optionalOrder.get();
+            orderdb.setState(state);
+            repository.save(orderdb);
+            return Optional.of(orderdb);
+        }
+        return Optional.empty();
+    }
+
+
+
+ 
 
 
 }
