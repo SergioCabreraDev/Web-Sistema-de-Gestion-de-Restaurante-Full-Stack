@@ -49,6 +49,7 @@ public class SpringSecurityConfig {
                 .requestMatchers(HttpMethod.POST, "/api/bookings").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/users").permitAll()
                 .requestMatchers(HttpMethod.GET, "/api/users").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.PUT, "/api/orders/{id}").hasRole("ADMIN")
                 .anyRequest().authenticated())
             .sessionManagement(management -> management.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .addFilter(new JwtAuthenticationFilter(authenticationManager()))
@@ -57,7 +58,6 @@ public class SpringSecurityConfig {
         return http.build();
     }
 
-    // Define la configuración CORS
     @Bean
     CorsConfigurationSource configurationSource() {
         CorsConfiguration config = new CorsConfiguration();
@@ -69,14 +69,14 @@ public class SpringSecurityConfig {
         config.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type"));
         // Permite credenciales
         config.setAllowCredentials(true);
-
+    
         // Crea una fuente basada en URLs y registra la configuración para todas las rutas
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);
         return source;
     }
-
-    // Define un filtro de registro para CORS con alta precedencia
+    
+    // Define un filtro de CORS con alta precedencia
     @Bean
     FilterRegistrationBean<CorsFilter> corsFilter() {
         FilterRegistrationBean<CorsFilter> corsBean = new FilterRegistrationBean<>(new CorsFilter(this.configurationSource()));

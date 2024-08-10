@@ -67,17 +67,15 @@ public class OrdersController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> update(@Valid @RequestBody Orders order, BindingResult result, @PathVariable Long id, @RequestParam(required = false) String state) {
+    public ResponseEntity<?> update(@PathVariable Long id, @RequestParam(required = false) String state) {
 
-        if (result.hasErrors()) {
-            return validation(result);
-        }
         
-        Optional<User> userOptional = service.update(user, id);
+        Optional<Orders> userOptional = services.update(id, state);
 
         if (userOptional.isPresent()) {
             return ResponseEntity.ok(userOptional.orElseThrow());
         }
+        
         return ResponseEntity.notFound().build();
     }
 

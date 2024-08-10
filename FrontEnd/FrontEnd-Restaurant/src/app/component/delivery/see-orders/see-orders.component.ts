@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { OrderServicesService } from '../../../services/order-services.service';
 import { CommonModule } from '@angular/common';
 
@@ -12,15 +12,19 @@ import { CommonModule } from '@angular/common';
 export class SeeOrdersComponent implements OnInit {
 
 
+
+
   orders: any[] = []
   orderSelect: any = [];
   orderFiltered: any [] = [];
   valueInputDate: any;
   today: string;
-  isChecked: boolean = false;
+
+
 
   constructor(
-    private service: OrderServicesService
+    private service: OrderServicesService,
+    private cdr: ChangeDetectorRef
   ){
     const todayDate = new Date();
     const day = String(todayDate.getDate()).padStart(2, '0');
@@ -30,15 +34,21 @@ export class SeeOrdersComponent implements OnInit {
 
   }
   ngOnInit(): void {
-   this.service.findAllOrders().subscribe(order =>{
+    this.loadOrders();
+ 
+  }
+
+  loadOrders(): void {
+    this.service.findAllOrders().subscribe(order => {
       this.orders = order.map(order => ({
         ...order,
         products: JSON.parse(order.products) // Asegúrate de esta conversión
-      }))
+      }));
       this.filterOrders();
-    })
- 
+    });
   }
+  
+  
 
   filterOrders(): void {
     const selectedDate = new Date(this.today);
@@ -54,15 +64,20 @@ export class SeeOrdersComponent implements OnInit {
     console.log(this.orderSelect);
     }
 
-    onCheckboxChange(event: Event): void {
+    orderManager(id: number, state: string){
 
-      const inputElement = event.target as HTMLInputElement;
-      this.isChecked = inputElement.checked;
+      this.service.updateState(id, state).subscribe({
+        next: (response) => {
+          console.log('Order updated successfully:', response);
+          this.loadOrders();
+          this.cdr.detectChanges(); // Forza la detección de cambios
+        },
+        error: (error) => {
+          console.error('Error updating order:', error);
+        }
+      });
 
-      
-      if(this.isChecked == true){
-        console.log(this.isChecked)
-      }
-      
+
     }
+   
 }

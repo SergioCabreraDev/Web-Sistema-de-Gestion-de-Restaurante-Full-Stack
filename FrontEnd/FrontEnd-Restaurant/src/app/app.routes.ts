@@ -46,7 +46,6 @@ export const routes: Routes = [
         path: 'delivery/see-orders',
         component: SeeOrdersComponent, 
         canActivate: [authGuard]
-
     },
     {
         path: 'forbidden',

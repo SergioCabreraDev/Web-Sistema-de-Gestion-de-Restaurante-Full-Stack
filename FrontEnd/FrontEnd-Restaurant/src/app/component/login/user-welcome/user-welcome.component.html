@@ -22,6 +22,20 @@
                 <td>{{item.date}}</td>
                 <td>{{item.time}}</td>
                 <td>{{item.price}} €</td>
+                <td>
+                  @if (item.state == "Pendiente") {
+                    <b style="color: red;">{{item.state}}</b>
+                   }@else if(item.state == "Entregado"){
+                     <b style="color: green;">{{item.state}}</b>
+                   }
+                   @else if(item.state == "En Camino"){
+                     <b style="color: rgb(6, 122, 218);">{{item.state}}</b>
+                   }
+                   @else if(item.state == "Preparando"){
+                     <b style="color: rgb(233, 171, 0);">{{item.state}}</b>
+                   }
+                </td>
+                
                 <td> <button class="btn btn-sm" (click)="transferOrder(item)" onclick="my_modal_1.showModal()">Ver Detalles</button>
                 
                 </td>
@@ -80,6 +94,7 @@
             <td></td>
           }
           <td>{{item.price}}€</td>
+
         
        
         </tr>

@@ -1,4 +1,4 @@
-import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Order } from '../models/order';
 import { catchError, Observable, throwError } from 'rxjs';
@@ -37,6 +37,30 @@ export class OrderServicesService {
       catchError(this.handleError)
     );
   }
+
+  updateState(id: number, state: string): Observable<Order> {
+    const token = localStorage.getItem('authToken');  // Obtener el token del localStorage
+    const params = new HttpParams().set('state', state);
+    const url = `${this.urlOrder}/${id}`;
+  
+    console.info('Generated URL:', url, 'Params:', params.toString());
+  
+    // Configuración de los headers, incluyendo el token de autenticación
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    });
+  
+    return this.http.put<Order>(url, null, { params, headers }).pipe(
+      catchError((error) => {
+        console.error('Error occurred during update:', error);
+        return throwError(() => error);
+      })
+    );
+  }
+  
+    
+    
 
 
 

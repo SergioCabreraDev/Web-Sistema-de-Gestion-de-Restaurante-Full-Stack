@@ -49,7 +49,7 @@ public class OrdersServicesImpl implements OrdersServices {
 
     @Override
     @Transactional
-    public Optional<Orders> update(Orders order, Long id, String state) {
+    public Optional<Orders> update(Long id, String state) {
 
         Optional<Orders> optionalOrder = repository.findById(id);
 

@@ -11,7 +11,7 @@ public interface OrdersServices {
     Orders saveOrder(Orders productsJson);
     List<Orders> findAll();
     List<Orders> findByPhoneNumber(String phoneNumber);
-    Optional<Orders> update(Orders order, Long id, String state);
+    Optional<Orders> update(Long id, String state);
     Optional<Orders> findById(Long id);
 
 }
