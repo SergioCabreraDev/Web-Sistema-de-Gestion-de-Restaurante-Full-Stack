@@ -46,7 +46,7 @@
       @if(!login.isAuth){
         <li class="">
           <a [routerLink]="['/login']" routerLinkActive="router-link-active"  class="a" (click)="closeMenu()">
-            <button class="c-button c-button--gooey">
+            <button (click)='toggleMenu()' class="c-button c-button--gooey" >
               Iniciar Sesion
               <div class="c-button__blobs">
                 <div></div>
@@ -91,12 +91,12 @@
                   {{login.user.email}}
                 </div>
                 <ul style="background-color: #FFB600; color: white;" tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-                  <li><a [routerLink]="['/welcome']">¡Bienvenido!</a></li>
+                  <li><a (click)='toggleMenu()' [routerLink]="['/welcome']">¡Bienvenido!</a></li>
                   @if (admin) {
-                    <li><a [routerLink]="['/bookings/see-bookings']">Lista de Reservas</a></li> 
-                    <li><a [routerLink]="['/delivery/see-orders']">Lista de Pedidos</a></li> 
+                    <li><a (click)='toggleMenu()' [routerLink]="['/bookings/see-bookings']">Lista de Reservas</a></li> 
+                    <li><a (click)='toggleMenu()' [routerLink]="['/delivery/see-orders']">Lista de Pedidos</a></li> 
                   }
-                  <li><a (click)="handlerLogout()">Cerrar Sesion</a></li>
+                  <li><a (click)='toggleMenu()' (click)="handlerLogout()">Cerrar Sesion</a></li>
                 </ul>
               </div>
             } 

@@ -114,7 +114,7 @@
       transition: all 0.5s ease;
       display: flex;
       flex-flow: column nowrap;
-      justify-content: center;
+      
       align-items: center;
     }
     
@@ -145,6 +145,10 @@
     .header {
       padding: 3.5% 3.5%;
       backdrop-filter: blur(20px);
+    }
+    .header .nav.activo {
+      height: 45vh;
+      pointer-events: auto;
     }
     img{
       width: 23px;

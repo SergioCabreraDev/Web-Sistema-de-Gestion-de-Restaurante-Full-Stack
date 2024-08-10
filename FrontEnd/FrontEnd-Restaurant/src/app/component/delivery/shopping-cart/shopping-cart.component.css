@@ -257,3 +257,24 @@
     font-weight: normal;
     font-style: normal;
   }
+
+
+
+
+
+  @keyframes grow {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.5);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  .grow-animation {
+    animation: grow 0.5s ease;
+  }
+  

@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { SharingDataService } from '../../../services/sharing-data.service';
 import { Drink } from '../../../models/food/drink';
 
+
 @Component({
   selector: 'app-cards',
   standalone: true,

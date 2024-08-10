@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../../services/auth.service';
 import { UserServicesService } from '../../../services/user-services.service';
 
+
 @Component({
   selector: 'app-shopping-cart',
   standalone: true,
