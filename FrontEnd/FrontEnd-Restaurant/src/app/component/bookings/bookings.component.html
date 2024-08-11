@@ -1,224 +1,249 @@
-<div class="flex flex-col items-center justify-center h-screen dark">
-    <div class="w-full max-w-md bg-gray-800 rounded-lg shadow-md p-6" style="background-color: #EE2737;">
-      <h2 class="text-2xl font-bold text-white-200 mb-4" style="color: rgb(255, 255, 255);">Reserva</h2>
-      <form class="flex flex-col" #itemForm="ngForm" (ngSubmit)="onSubmit(itemForm)">
+<div class="margins">
+<form class="form" #itemForm="ngForm" (ngSubmit)="onSubmit(itemForm)">
 
-          <!-- NAME -->
+  <!-- NAME -->
 
-          <input
-            placeholder="Nombre"
-            class="bg-gray-700 text-gray-200 border-0 rounded-md p-2 mb-4 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
-            type="text"
-            required
-            [(ngModel)]="booking.name"
-            name="name"
-            #name="ngModel"
-            minlength="3"
-          />
-    
-          <ng-container *ngIf="name.invalid && (name.dirty || name.touched)">
-            <ng-container *ngIf="name.errors!['required'] || name.errors?.['minlength']">
-                <div role="alert" class="alert alert-error">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-6 w-6 shrink-0 stroke-current"
-                      fill="none"
-                      viewBox="0 0 24 24">
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <span>Nombre Invalido.</span>
-                  </div>
-            </ng-container>
-          </ng-container>
-
-
-
-
-          <!-- LASTNAME -->
-
-
-          <input
-            placeholder="Apellido"
-            class="bg-gray-700 text-gray-200 border-0 rounded-md p-2 mb-4 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
-            type="text"
-            [(ngModel)]="booking.lastName"
-            #lastName="ngModel"
-            required
-            minlength="3"
-            name="lastName"
-          />
-
-          <ng-container *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
-        
-            <ng-container *ngIf="lastName.errors!['required'] || lastName.errors?.['minlength']">
-                <div role="alert" class="alert alert-error">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-6 w-6 shrink-0 stroke-current"
-                      fill="none"
-                      viewBox="0 0 24 24">
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <span>Apellidos Invalidos.</span>
-                  </div>
-            </ng-container>
-          </ng-container>
-        
-     
-
-
-
-
-
-        <!-- PHONE -->
-
-        <input
-          class="bg-gray-700 text-gray-200 border-0 rounded-md p-2 mb-4 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
-          placeholder="Escribe tu Numero de Telefono" 
-          pattern="(\+34|0034|34)?[ -]*(6|7)[ -]*([0-9][ -]*){8}"
-          type="text" 
-          required
-          required="" 
-          [(ngModel)]="booking.phoneNumber" 
-          name="telf" 
-          #telf="ngModel"
-          minlength="9"
-          maxlength="9"
-          id="telf"
-        />
-
-        <ng-container *ngIf="telf.invalid && (telf.dirty || telf.touched)">
-        
-          <ng-container *ngIf="telf.errors!['required'] || telf.errors?.['pattern']">
-              <div role="alert" class="alert alert-error">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-6 w-6 shrink-0 stroke-current"
-                    fill="none"
-                    viewBox="0 0 24 24">
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  <span>Telefono Invalido.</span>
-                </div>
-          </ng-container>
+  <div style="display: grid;">
+    <label for="age">Nombre</label>
+    <input
+      type="text"
+      placeholder="Nombre"
+      required
+      [(ngModel)]="booking.name"
+      name="name"
+      #name="ngModel"
+      minlength="3"
+      class="input input-bordered input-warning w-full max-w-xs"
+    />
+    <div class="alert-container">
+      <ng-container *ngIf="name.invalid && (name.dirty || name.touched)">
+        <ng-container *ngIf="name.errors!['required'] || name.errors?.['minlength']">
+          <div role="alert" class="alert alert-error active">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6 shrink-0 stroke-current"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+            <span>Nombre Invalido.</span>
+          </div>
         </ng-container>
-
-        <input
-          placeholder="Número de personas"
-          class="bg-gray-700 text-gray-200 border-0 rounded-md p-2 mb-4 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
-          type="text"
-          required
-          [(ngModel)]="booking.numberOfPersons"
-          name="numberOfPeople"
-          #numberOfPeople="ngModel"
-          pattern="^([1-9]|1[0-9]|20)$"
-        />
-
-      <div *ngIf="numberOfPeople.invalid && numberOfPeople.touched" class="text-red-500">
-
-        <div role="alert" class="alert alert-error">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6 shrink-0 stroke-current"
-            fill="none"
-            viewBox="0 0 24 24">
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-          <span>        El número de personas debe ser entre 1 y 20. <br>
-            En caso de superar el maximo contacten con nosotros.</span>
-        </div>
-      </div>
-
-
-
-
-      
-      <label class="text-sm mb-2 text-gray-200 cursor-pointer" for="age">
-        Fecha
-      </label>
-      <input
-        class="bg-gray-700 text-gray-200 border-0 rounded-md p-2"
-        id="age"
-        type="date"
-        [min]="today"
-        required
-        [(ngModel)]="booking.date"
-        #date="ngModel"
-        name="date"
-        (change)="onDateChange($event)"
-      />
-      <div *ngIf="date.invalid && date.touched" class="text-red-500">
-        <div role="alert" class="alert alert-error" style="margin-top: 1rem;">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6 shrink-0 stroke-current"
-            fill="none"
-            viewBox="0 0 24 24">
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-          <span>Elige una fecha</span>
-        </div>
-      </div>
-      
-      <br>
-      <label class="text-sm mb-2 text-gray-200 cursor-pointer" for="gender">
-        Hora
-      </label>
-      <select
-        class="bg-gray-700 text-gray-200 border-0 rounded-md p-2 mb-4 focus:bg-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
-        id="gender"
-        required
-        [(ngModel)]="booking.time"
-        #time="ngModel"
-        name="time">
-        <option *ngFor="let hora of horas" [value]="hora">{{ hora }}</option>
-      </select>
-      
-      <div *ngIf="time.invalid && time.touched" class="text-red-500">
-        <div role="alert" class="alert alert-error" style="">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6 shrink-0 stroke-current"
-            fill="none"
-            viewBox="0 0 24 24">
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-          <span>Elige una hora</span>
-        </div>
-      </div>
-      
-      <button
-        class="bg-to-r from-indigo-500 to-500 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-indigo-600 hover:to-600 transition ease-in-out duration-150"
-        type="submit">
-        RESERVAR
-      </button>
-      
-      </form>
+      </ng-container>
     </div>
   </div>
+
+
+
+  <!-- LASTNAME -->
+
+   <!-- LASTNAME -->
+   <div style="display: grid;">
+    <label for="age">Apellido</label>
+    <input
+      type="text"
+      placeholder="Apellido"
+      required
+      minlength="3"
+      [(ngModel)]="booking.lastName"
+      name="lastName"
+      #lastName="ngModel"
+      class="input input-bordered input-warning w-full max-w-xs"
+    />
+
+    <!-- Contenedor de la alerta -->
+    <div class="alert-container">
+      <ng-container *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
+        <ng-container *ngIf="lastName.errors!['required'] || lastName.errors?.['minlength']">
+          <div role="alert" class="alert alert-error active">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6 shrink-0 stroke-current"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+            <span>Apellidos Invalidos.</span>
+          </div>
+        </ng-container>
+      </ng-container>
+    </div>
+    <!-- Fin del contenedor de la alerta -->
+  </div>
+
+
+  <!-- PHONE -->
+
+
+  <div style="display: grid;">
+    <label class="" for="age">
+      Telefono
+    </label>
+  <input
+  placeholder="Tu Numero de Telefono" 
+  pattern="(\+34|0034|34)?[ -]*(6|7)[ -]*([0-9][ -]*){8}"
+  type="text" 
+  required
+  required="" 
+  [(ngModel)]="booking.phoneNumber" 
+  name="telf" 
+  #telf="ngModel"
+  minlength="9"
+  maxlength="9"
+  id="telf"
+  class="input input-bordered input-warning w-full max-w-xs" 
+  />
+
+  <div class="alert-container">
+  <ng-container *ngIf="telf.invalid && (telf.dirty || telf.touched)">
+        
+    <ng-container *ngIf="telf.errors!['required'] || telf.errors?.['pattern']">
+      <div role="alert" class="alert alert-error active">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6 shrink-0 stroke-current"
+              fill="none"
+              viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span>Telefono Invalido.</span>
+          </div>
+    </ng-container>
+  </ng-container>
+  </div>
+</div>
+
+
+  <!-- PERSONSº -->
+
+  <div style="display: grid;">
+    <label class="" for="age">
+      Personas. (1 - 20)
+    </label>
+  <input
+  placeholder="Número de personas"
+  type="text"
+  required
+  [(ngModel)]="booking.numberOfPersons"
+  name="numberOfPeople"
+  #numberOfPeople="ngModel"
+  pattern="^([1-9]|1[0-9]|20)$"
+  class="input input-bordered input-warning w-full max-w-xs" 
+  />
+  <div class="alert-container">
+  <div *ngIf="numberOfPeople.invalid && numberOfPeople.touched" class="text-red-500">
+
+    <div role="alert" class="alert alert-error active">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6 shrink-0 stroke-current"
+        fill="none"
+        viewBox="0 0 24 24">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+      <span> Solo se admite entre 1 y 20 personas.</span>
+    </div>
+    </div>
+  </div>
+
+  </div>
+
+  <!-- DATE -->
+
+
+  <div style="display: grid;">
+  <label class="" for="age">
+    Fecha
+  </label>
+  <input
+  class="input input-bordered input-warning w-full max-w-xs" 
+    id="age"
+    type="date"
+    [min]="today"
+    required
+    [(ngModel)]="booking.date"
+    #date="ngModel"
+    name="date"
+    (change)="onDateChange($event)"
+  />
+  <div class="alert-container">
+  <div *ngIf="date.invalid && date.touched" class="text-red-500">
+    <div role="alert" class="alert alert-error active">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6 shrink-0 stroke-current"
+        fill="none"
+        viewBox="0 0 24 24">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+      <span>Elige una fecha</span>
+    </div>
+  </div>
+  </div>
+  </div>
+
+  <!-- HOUR -->
+
+
+  <div style="display: grid;">
+  <label class="" for="gender">
+    Hora
+  </label>
+  <select
+  class="input input-bordered input-warning w-full max-w-xs" 
+    id="gender"
+    required
+    [(ngModel)]="booking.time"
+    #time="ngModel"
+    name="time">
+    <option *ngFor="let hora of horas" [value]="hora">{{ hora }}</option>
+  </select>
   
-  
+
+  <div class="alert-container">
+  <div *ngIf="time.invalid && time.touched" class="text-red-500">
+    <div role="alert" class="alert alert-error active">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6 shrink-0 stroke-current"
+        fill="none"
+        viewBox="0 0 24 24">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+      <span>Elige una hora</span>
+    </div>
+  </div>
+  </div>
+  </div>
+
+  <button style="grid-column: 2;" class="btn btn-outline btn-warning" type="submit">Reservar</button>
+</form>
+</div>

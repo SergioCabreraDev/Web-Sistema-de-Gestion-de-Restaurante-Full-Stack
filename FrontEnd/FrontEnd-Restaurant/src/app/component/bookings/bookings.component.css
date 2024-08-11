@@ -1,29 +1,79 @@
-label{
-    color: rgb(255, 255, 255);
-}
-input, select{
-    background-color: #971823;
-    color: white;
-}
-input:focus{
-    background-color: #500c12;
-}
-button{
-    color: white;
-    background-color: #FFB600;
-}
-button:hover{
-    background-color: #c68e00;
+.margins {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15rem;
+  margin-bottom: 30rem;
 }
 
-form{
-    font-family: "2";
+form {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 3rem;
+  border: 1px solid rgb(17, 17, 17);
+  background-color: rgb(17, 17, 17);
+  padding: 4rem;
+  border-radius: 1rem;
 }
 
-.alert{
-  margin-bottom: 1rem;
-  padding: 0.5rem;
+.alert-container {
+  position: relative;
+  min-height: 3rem; /* Reserva espacio para la alerta */
 }
+
+.alert {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: opacity 0.3s ease-in-out; /* Transición suave */
+  opacity: 0;
+}
+
+.alert.active {
+  opacity: 1; /* Hace visible la alerta */
+}
+
+
+
+
+
+@media (max-width: 1024px) {
+}
+
+@media (max-width: 767px) {
+  .margins {  
+    margin-top: 5rem;
+    margin-bottom: 25rem;
+  }
+  form{
+    display: flex;
+    flex-direction: column;
+    grid-gap: 1rem;
+    background-color: transparent;
+    border: transparent;
+  }
+  .alert{position:static;}
+
+  .alert-container {
+    position: none;
+    min-height: 0rem; /* Reserva espacio para la alerta */
+  }
+  input{
+    width: 18rem;
+  }
+  .alert {
+    display: flex;
+
+  }
+  
+}
+
+/* Ordenadores de sobremesa y portátiles */
+@media only screen and (min-width: 1224px) and (max-width: 1366px) {
+}
+
+
 
 /* Declara la fuente personalizada */
 @font-face {

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { User } from '../../models/User';
@@ -11,6 +11,12 @@ import { User } from '../../models/User';
   styleUrl: './nav-bar.component.css'
 })
 export class NavBarComponent {
+  @ViewChild('topElement') topElement!: ElementRef;
+
+  // Función que se llamará cuando selecciones una opción del menú
+  scrollToTop() {
+    this.topElement.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 
   menuActivo = false;
 
@@ -26,6 +32,7 @@ export class NavBarComponent {
   }
 
   closeMenu() {
+    this.topElement.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
     this.menuActivo = false;
   }
   

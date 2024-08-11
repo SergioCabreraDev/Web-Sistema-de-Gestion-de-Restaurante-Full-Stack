@@ -1,5 +1,6 @@
+<div id="top" #topElement></div>
 <header class="header">
-  <a [routerLink]='["/index"]' class="a">
+  <a [routerLink]='["/index"]' class="a" (click)="closeMenu()">
     <b> <p class="titulo-navbar" style="font-family: 'HONYA'; ">CABRERA'S</p></b>
   </a>
   <button class="button" (click)="toggleMenu()">
@@ -104,3 +105,4 @@
     </ul>
   </nav>
 </header>
+
