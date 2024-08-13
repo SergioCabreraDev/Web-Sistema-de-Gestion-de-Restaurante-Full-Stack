@@ -49,6 +49,13 @@ export class UserServicesService {
       catchError(this.handleError)
     );
   }
+
+
+  sendEmailNewsletter(email: string): Observable<any> {
+    return this.http.post<any>('http://localhost:8080/api/newsletter', email).pipe(
+      catchError(this.handleError)
+    );
+  }
     
 
 
