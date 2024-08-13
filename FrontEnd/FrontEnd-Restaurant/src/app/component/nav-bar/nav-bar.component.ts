@@ -13,10 +13,6 @@ import { User } from '../../models/User';
 export class NavBarComponent {
   @ViewChild('topElement') topElement!: ElementRef;
 
-  // Función que se llamará cuando selecciones una opción del menú
-  scrollToTop() {
-    this.topElement.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
 
   menuActivo = false;
 

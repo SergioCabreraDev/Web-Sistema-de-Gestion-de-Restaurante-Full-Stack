@@ -1,17 +1,19 @@
 <div class="margenes-newletter">
     <h3 class="titulo-newletter">SUSCRIBETE A NUESTRA NEWSLETTER</h3>
 
+    <form action="" #itemForm="ngForm" (ngSubmit)="onSubmit(itemForm)">
     <div class="input-newletter">
     <div class="inputbox">
-        <input type="text" required="required">
+        <input type="text" required="required" name="email"  [(ngModel)]="email" required>
         <span>Correo Electronico</span>
         <i></i>
 
     </div>
 
-    <button class="button">
-        <span class="button-content">¡SUSCRIBIRSE! </span>
+    <button class="button" type="submit">
+        <span class="button-content">¡SUSCRIBIRSE!</span>
       </button>
 
         </div>
+    </form>
 </div>

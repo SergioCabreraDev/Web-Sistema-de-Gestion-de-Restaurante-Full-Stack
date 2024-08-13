@@ -1,3 +1,23 @@
 .margenes{
     margin: 20rem 5rem;
+    margin-bottom: 18rem;
+}
+
+@media (max-width: 1024px) {
+    .margenes{
+        margin: 8rem 1rem;
+        margin-bottom: 64rem;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .margenes{
+        margin: 8rem 1rem;
+        margin-bottom: 34rem;
+    }
+}
+
+/* Ordenadores de sobremesa y portátiles */
+@media only screen and (min-width: 1224px) and (max-width: 1366px) {
 }

@@ -1,4 +1,5 @@
-<div id="top" #topElement></div>
+<div id="top" style=" position: relative;
+  top: -2332320px;" #topElement></div>
 <header class="header">
   <a [routerLink]='["/index"]' class="a" (click)="closeMenu()">
     <b> <p class="titulo-navbar" style="font-family: 'HONYA'; ">CABRERA'S</p></b>
@@ -92,10 +93,10 @@
                   {{login.user.email}}
                 </div>
                 <ul style="background-color: #FFB600; color: white;" tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-                  <li><a (click)='toggleMenu()' [routerLink]="['/welcome']">¡Bienvenido!</a></li>
+                  <li><a (click)="closeMenu()" [routerLink]="['/welcome']">¡Bienvenido!</a></li>
                   @if (admin) {
-                    <li><a (click)='toggleMenu()' [routerLink]="['/bookings/see-bookings']">Lista de Reservas</a></li> 
-                    <li><a (click)='toggleMenu()' [routerLink]="['/delivery/see-orders']">Lista de Pedidos</a></li> 
+                    <li><a  (click)="closeMenu()" [routerLink]="['/bookings/see-bookings']">Lista de Reservas</a></li> 
+                    <li><a  (click)="closeMenu()" [routerLink]="['/delivery/see-orders']">Lista de Pedidos</a></li> 
                   }
                   <li><a (click)='toggleMenu()' (click)="handlerLogout()">Cerrar Sesion</a></li>
                 </ul>

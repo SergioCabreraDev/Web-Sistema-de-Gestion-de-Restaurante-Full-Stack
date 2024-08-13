@@ -209,6 +209,20 @@
     z-index: 9999 !important; /* Asegura que el modal tenga el `z-index` más alto */
 }
 
+@media (max-width: 1024px) {
+}
+
+@media (max-width: 767px) {
+  input{
+    margin-bottom: 1rem;
+  }
+
+}
+
+/* Ordenadores de sobremesa y portátiles */
+@media only screen and (min-width: 1224px) and (max-width: 1366px) {
+}
+
 
 
 
@@ -259,22 +273,4 @@
   }
 
 
-
-
-
-  @keyframes grow {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.5);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
-  
-  .grow-animation {
-    animation: grow 0.5s ease;
-  }
   

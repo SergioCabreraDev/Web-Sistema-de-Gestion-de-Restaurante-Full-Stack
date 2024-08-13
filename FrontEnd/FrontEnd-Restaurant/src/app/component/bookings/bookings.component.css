@@ -2,7 +2,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 15rem;
+  flex-direction: column;
+  margin-top: 13rem;
   margin-bottom: 30rem;
 }
 
@@ -14,6 +15,7 @@ form {
   background-color: rgb(17, 17, 17);
   padding: 4rem;
   border-radius: 1rem;
+  font-family: '2';
 }
 
 .alert-container {
@@ -39,12 +41,18 @@ form {
 
 
 @media (max-width: 1024px) {
+  .margins {  
+    margin-top: 10rem;
+    margin-bottom: 40rem;
+    font-size: large;
+  }
 }
 
 @media (max-width: 767px) {
   .margins {  
     margin-top: 5rem;
     margin-bottom: 25rem;
+    font-size: large;
   }
   form{
     display: flex;
@@ -78,7 +86,7 @@ form {
 /* Declara la fuente personalizada */
 @font-face {
     font-family: "2";
-    src: url("/assets/fonts/PublicSans-Medium.ttf") format("opentype");
+    src: url("../../../assets/fonts/PublicSans-Medium.ttf") format("opentype");
     font-weight: normal;
     font-style: normal;
   }
@@ -92,7 +100,7 @@ form {
   /* Declara la fuente personalizada */
   @font-face {
     font-family: "4";
-    src: url("/assets/fonts/PublicSans-ExtraBoldItalic.ttf") format("opentype");
+    src: url("../../../assets/fonts/PublicSans-ExtraBoldItalic.ttf") format("opentype");
     font-weight: normal;
     font-style: normal;
   }

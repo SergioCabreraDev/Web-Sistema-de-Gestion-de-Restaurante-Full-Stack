@@ -97,9 +97,11 @@
 
   
   @media (max-width: 1024px) {
+
     .header .button {
       display: block;
       cursor: pointer;
+      
     }
     .header{
       padding: 3% 3%;
@@ -136,6 +138,10 @@
     .titulo-navbar{
       font-size: 25px;
 
+    }
+    .header .nav.activo {
+      height: 35vh;
+      pointer-events: auto;
     }
 
   }
