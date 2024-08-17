@@ -64,6 +64,14 @@ public class OrdersServicesImpl implements OrdersServices {
 
 
 
+    @Transactional
+    @Override
+    public void deleteById(Long id) {
+        repository.deleteById(id);
+    }
+
+
+
  
 
 

@@ -1,6 +1,8 @@
 import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { OrderServicesService } from '../../../services/order-services.service';
 import { CommonModule } from '@angular/common';
+import Swal from 'sweetalert2';
+import { error } from 'console';
 
 @Component({
   selector: 'app-see-orders',
@@ -10,6 +12,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './see-orders.component.css'
 })
 export class SeeOrdersComponent implements OnInit {
+
 
 
 
@@ -79,5 +82,30 @@ export class SeeOrdersComponent implements OnInit {
 
 
     }
+
+    deleteOrderById(id: any) {
+      this.service.remove(id).subscribe({
+        next: (response) =>{
+          this.orders.filter(item => item.id !== id);
+          console.warn("La reserva con id ("+ id + ") ha sido borrada");
+          Swal.fire({
+            icon: "success",
+            title: "Pedido Borrado",
+            showConfirmButton: false,
+            timer: 1500
+          });
+          this.loadOrders();
+        },
+        error: (error) =>{
+          Swal.fire({
+            icon: "error",
+            title: error,
+            showConfirmButton: false,
+            timer: 1500
+          });
+        }
+      })
+      }
+
    
 }

@@ -30,6 +30,7 @@ onSubmit(itemForm: any) {
         showConfirmButton: false,
         timer: 1500
       });
+      this.email = "";
     },
     error: (error) => {
       Swal.fire({

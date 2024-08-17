@@ -13,5 +13,5 @@ public interface OrdersServices {
     List<Orders> findByPhoneNumber(String phoneNumber);
     Optional<Orders> update(Long id, String state);
     Optional<Orders> findById(Long id);
-
+    void deleteById(Long id);
 }

@@ -30,6 +30,10 @@ export class OrderServicesService {
     );
   }
 
+  remove(id: number): Observable<void>{
+    return this.http.delete<void>(`${this.urlOrder}/${id}`);
+  }
+
   // Método para encontrar un usuario por email
   findOderByNumber(phoneNumber: string): Observable<Order[]> {
     const params = new HttpParams().set('phoneNumber', phoneNumber);

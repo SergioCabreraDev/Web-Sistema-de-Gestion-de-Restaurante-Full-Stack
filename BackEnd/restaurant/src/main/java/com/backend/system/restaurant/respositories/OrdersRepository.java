@@ -13,5 +13,6 @@ public interface OrdersRepository extends CrudRepository<Orders, Long> {
 
         List<Orders> findAll();
         List<Orders> findByPhoneNumber(String phoneNumber);
+        void deleteById(Long id);
 
 }

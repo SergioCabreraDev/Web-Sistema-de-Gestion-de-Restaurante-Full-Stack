@@ -63,6 +63,7 @@ export class SeeBookingsComponent implements OnInit {
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
       confirmButtonText: "Si, Eliminar!"
+      
     }).then((result) => {
       if (result.isConfirmed) {
         this.service.remove(id).subscribe(

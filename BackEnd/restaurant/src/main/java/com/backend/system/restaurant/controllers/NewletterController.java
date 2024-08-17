@@ -25,7 +25,6 @@ public class NewletterController {
     @PostMapping
     public ResponseEntity<Map<String, String>> postMethodName(@RequestBody String email) {
         SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom("noreply@baeldung.com");
         message.setTo(email);
         message.setSubject("Gracias por suscribirte a nuestra Newsletter");
         message.setText("Estamos emocionados de compartir contigo las últimas noticias y deliciosas novedades de Cabreras Burger. Si eres amante de las hamburguesas, ¡esto es para ti!");

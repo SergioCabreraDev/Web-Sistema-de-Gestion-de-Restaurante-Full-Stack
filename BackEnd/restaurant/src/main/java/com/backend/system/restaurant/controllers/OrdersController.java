@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -70,12 +71,24 @@ public class OrdersController {
     public ResponseEntity<?> update(@PathVariable Long id, @RequestParam(required = false) String state) {
 
         
-        Optional<Orders> userOptional = services.update(id, state);
+        Optional<Orders> orderOptional = services.update(id, state);
 
-        if (userOptional.isPresent()) {
-            return ResponseEntity.ok(userOptional.orElseThrow());
+        if (orderOptional.isPresent()) {
+            return ResponseEntity.ok(orderOptional.orElseThrow());
         }
         
+        return ResponseEntity.notFound().build();
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteOrder(@PathVariable Long id){
+        Optional<Orders> orderOptional = services.findById(id);
+
+        if (orderOptional.isPresent()) {  // Si la order existe, elimínalo y retorna NO_CONTENT
+            services.deleteById(id);
+            return ResponseEntity.noContent().build();
+        }
+        // Si no existe la order, retorna NOT_FOUND
         return ResponseEntity.notFound().build();
     }
 
@@ -89,5 +102,8 @@ public class OrdersController {
         // Retorna una respuesta de error badRequest con los errores de validación
         return ResponseEntity.badRequest().body(errors);
     }
+
+
+
 
 }

@@ -35,7 +35,10 @@ export const authGuard: CanActivateFn = (route, state) => {
 
   // Si el usuario no está autenticado, navega a la página de inicio de sesión y bloquea el acceso.
 router.navigate(['/login']);
-Swal.fire("Para poder acceder primero Inicia Sesion");
+setTimeout(() => {
+  Swal.fire("Para poder acceder primero Inicia Sesion");
+}, 500);
+
 return false;
 };
 

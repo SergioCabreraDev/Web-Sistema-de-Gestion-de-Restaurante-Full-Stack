@@ -16,6 +16,12 @@
     animation: fadeInDown 1s;
     backdrop-filter: blur(2px);
   }
+
+  p {
+    margin: 0;
+}
+
+
   
   .header .a {}
   

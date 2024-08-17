@@ -10,6 +10,7 @@
     background-image: url('../../../../assets/img/fondocarta.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
   
   }
   
@@ -102,6 +103,7 @@
             background-image: url('../../../../assets/img/fondocarta.jpg');
             background-size: cover;
             background-repeat: no-repeat;
+            
           
           }
      

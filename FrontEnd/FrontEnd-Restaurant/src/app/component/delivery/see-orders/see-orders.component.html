@@ -17,8 +17,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngIf="orders.length === 0">
-            <td colspan="6">
+          <tr *ngIf="orders.length === 0 || orderFiltered.length == 0">
+            <td colspan="7">
               <div role="alert" class="alert alert-warning">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -31,7 +31,7 @@
                     stroke-width="2"
                     d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                 </svg>
-                <span>No hay reservas para la fecha seleccionada</span>
+                <span>No hay pedidos para la hoy</span>
               </div>
             </td>
           </tr>
@@ -64,75 +64,83 @@
                 <td><button class="btn btn-error btn-sm"  (click)="orderManager(item.id, 'Pendiente')">Pendiente</button></td>
               </div>
 
+              <td> <a (click)="deleteOrderById(item.id)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-x">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M18 6l-12 12" />
+                <path d="M6 6l12 12" />
+              </svg></a></td>
+
           </tr>
         </tbody>
       </table>
     </div>
+
+    <dialog id="my_modal_1" class="modal">
+      <div class="modal-box">
+        <table class="table">
+          <!-- head -->
+          <thead>
+            <tr>
+      
+              <th>Producto</th>
+              <th>Guarnicion</th>
+              <th>Otra Info</th>
+              <th>Precio</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (item of orderSelect; track $index) {
+            <!-- row 4 -->
+            <tr>
+              <td>
+                <div class="flex items-center gap-3">
+                  <div class="avatar">
+                   
+                    <div class="mask mask-squircle h-12 w-12">
+                      <img
+                        src="{{item.img}}"
+                        alt="Avatar Tailwind CSS Component" />
+                    </div>
+                  </div>
+                  <div>
+                    <div class="font-bold">{{item.name}}</div>
+                    <div class="text-sm opacity-50">{{item.type}}</div>
+                  </div>
+                </div>
+              </td>
+              @if (item.type == "burgers") {
+                
+                <td>
+                  <button class="btn btn-ghost btn-xs">{{item.garrison}}</button>
+                </td>
+                <td><span class="badge badge-ghost badge-sm">{{item.point}}</span></td>
+              }@else {
+                <td></td>
+                <td></td>
+              }
+              <td>{{item.price}}€</td>
+            
+           
+            </tr>
+          }
+          </tbody>
+       
+          <!-- foot -->
+          <tfoot>
+           
+          </tfoot>
+        </table>
+        <div class="modal-action">
+          <form method="dialog">
+            <!-- if there is a button in form, it will close the modal -->
+            <button class="btn">Close</button>
+          </form>
+        </div>
+      </div>
+    </dialog>
   </div>
   
 
 
 
-  <dialog id="my_modal_1" class="modal">
-    <div class="modal-box">
-      <table class="table">
-        <!-- head -->
-        <thead>
-          <tr>
-    
-            <th>Producto</th>
-            <th>Guarnicion</th>
-            <th>Otra Info</th>
-            <th>Precio</th>
-          </tr>
-        </thead>
-        <tbody>
-          @for (item of orderSelect; track $index) {
-          <!-- row 4 -->
-          <tr>
-            <td>
-              <div class="flex items-center gap-3">
-                <div class="avatar">
-                 
-                  <div class="mask mask-squircle h-12 w-12">
-                    <img
-                      src="{{item.img}}"
-                      alt="Avatar Tailwind CSS Component" />
-                  </div>
-                </div>
-                <div>
-                  <div class="font-bold">{{item.name}}</div>
-                  <div class="text-sm opacity-50">{{item.type}}</div>
-                </div>
-              </div>
-            </td>
-            @if (item.type == "burgers") {
-              
-              <td>
-                <button class="btn btn-ghost btn-xs">{{item.garrison}}</button>
-              </td>
-              <td><span class="badge badge-ghost badge-sm">{{item.point}}</span></td>
-            }@else {
-              <td></td>
-              <td></td>
-            }
-            <td>{{item.price}}€</td>
-          
-         
-          </tr>
-        }
-        </tbody>
-     
-        <!-- foot -->
-        <tfoot>
-         
-        </tfoot>
-      </table>
-      <div class="modal-action">
-        <form method="dialog">
-          <!-- if there is a button in form, it will close the modal -->
-          <button class="btn">Close</button>
-        </form>
-      </div>
-    </div>
-  </dialog>
+ 
