@@ -90,10 +90,14 @@ export class ShoppingCartComponent implements OnInit {
 
   totalAmount() {
     this.total = this.cart.reduce((acc, product) => acc + product.price, 0);
-    this.total = Number((Math.round(this.total * 100) / 100).toFixed(2));
+    // Usamos toFixed para asegurarnos de que siempre haya dos decimales
+    this.total = (Math.round((this.total + Number.EPSILON) * 100) / 100);
     console.log('Total amount:', this.total);
-    return this.total;
-  }
+    // Retornamos el número directamente
+    return this.total; 
+}
+
+  
 
   pay() {
     if (this.cart.length == 0) {

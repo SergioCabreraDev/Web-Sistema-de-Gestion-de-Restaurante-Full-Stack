@@ -22,7 +22,7 @@ import com.backend.system.restaurant.entities.Booking;
 import com.backend.system.restaurant.entities.User;
 import com.backend.system.restaurant.services.UserServices;
 
-@CrossOrigin(originPatterns = {"http://localhost:4200"})  // Permite peticiones desde localhost:4200 (Angular frontend)
+@CrossOrigin(origins =  {"http://localhost:4200"}, originPatterns = {"*"})  // Permite peticiones desde localhost:4200 (Angular frontend)
 @RestController
 @RequestMapping("/api/users")
 public class UserController {

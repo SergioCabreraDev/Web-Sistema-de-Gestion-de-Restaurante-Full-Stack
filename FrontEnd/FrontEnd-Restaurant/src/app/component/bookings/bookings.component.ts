@@ -7,6 +7,7 @@ import { BookingsServicesService } from '../../services/bookings-services.servic
 import { RouterLink } from '@angular/router';
 
 
+
 @Component({
   selector: 'app-bookings',
   standalone: true,
@@ -21,6 +22,7 @@ export class BookingsComponent implements OnInit {
   today: string;
   horas: string[] = [];
   errorMessage!: string;
+
 
   constructor(
     private service: BookingsServicesService

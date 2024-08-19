@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 
-@CrossOrigin(originPatterns = { "http://localhost:4200" }) // Permite peticiones desde localhost:4200 (Angular frontend)
+@CrossOrigin(origins =  {"http://localhost:4200"}, originPatterns = {"*"}) // Permite peticiones desde localhost:4200 (Angular frontend)
 @RestController
 @RequestMapping("/api/newsletter")
 public class NewletterController {

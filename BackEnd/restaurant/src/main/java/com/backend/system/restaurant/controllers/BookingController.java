@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.backend.system.restaurant.entities.Booking;
 import com.backend.system.restaurant.services.BookingServices;
 
-@CrossOrigin(originPatterns = {"http://localhost:4200"})  // Permite peticiones desde localhost:4200 (Angular frontend)
+@CrossOrigin(origins =  {"http://localhost:4200"}, originPatterns = {"*"})   // Permite peticiones desde localhost:4200 (Angular frontend)
 @RestController
 @RequestMapping("/api/bookings")
 public class BookingController {

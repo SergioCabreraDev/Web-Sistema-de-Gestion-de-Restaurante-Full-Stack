@@ -8,13 +8,14 @@ import { burgers } from '../data/food/burger.data';
 import { starters } from '../data/food/entrantes.data';
 import { dessert } from '../data/food/dessert.data';
 import { drinks } from '../data/food/drinks.data';
+import { URL_AWS, URL_LOCALHOST } from '../config/config';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserServicesService {
-  private urlUsers: string = 'http://localhost:8080/api/users';  // URL base
+  private urlUsers: string =  URL_LOCALHOST + '/api/users';  // URL base
 
   constructor(private http: HttpClient) { }
 

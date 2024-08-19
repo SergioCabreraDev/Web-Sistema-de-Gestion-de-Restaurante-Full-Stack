@@ -3,6 +3,7 @@ import { OrderServicesService } from '../../../services/order-services.service';
 import { CommonModule } from '@angular/common';
 import Swal from 'sweetalert2';
 import { error } from 'console';
+import { interval, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-see-orders',
@@ -22,6 +23,8 @@ export class SeeOrdersComponent implements OnInit {
   orderFiltered: any [] = [];
   valueInputDate: any;
   today: string;
+  pollingSubscription: Subscription = new Subscription();
+  pollingInterval: number = 3000; // Intervalo en milisegundos (5 segundos)
 
 
 
@@ -37,8 +40,9 @@ export class SeeOrdersComponent implements OnInit {
 
   }
   ngOnInit(): void {
+
     this.loadOrders();
- 
+    this.startInterval();
   }
 
   loadOrders(): void {
@@ -49,6 +53,17 @@ export class SeeOrdersComponent implements OnInit {
       }));
       this.filterOrders();
     });
+  }
+
+  startInterval(){
+    this.pollingSubscription.add(
+      interval(this.pollingInterval).subscribe(() => {
+        this.loadOrders();
+      })
+    );
+  }
+  ngOnDestroy(): void {
+    this.pollingSubscription.unsubscribe();
   }
   
   

@@ -42,7 +42,7 @@
               <td>{{item.phoneNumber}}</td>
               <td>{{item.date}}</td>
               <td>{{item.time}}</td>
-              <td> <button class="btn btn-sm" (click)="transferOrder(item)" onclick="my_modal_1.showModal()">Ver Detalles</button></td>
+              <td> <button class="bton info" (click)="transferOrder(item)" onclick="my_modal_1.showModal()">Ver Detalles</button></td>
               <td>
                 @if (item.state == "Pendiente") {
                  <b style="color: red;">{{item.state}}</b>
@@ -57,11 +57,13 @@
                 }
                 
               </td>
+
               <div style="display: flex;">
-                <td><button style="" class="btn btn-success btn-sm" (click)="orderManager(item.id, 'Entregado')" >Entregado</button></td>
-                <td> <button style="" class="btn btn-info btn-sm" (click)="orderManager(item.id, 'En Camino')">En Camino</button></td>
-                <td> <button style="" class="btn btn-warning btn-sm"  (click)="orderManager(item.id, 'Preparando')">Preparando</button></td>
-                <td><button class="btn btn-error btn-sm"  (click)="orderManager(item.id, 'Pendiente')">Pendiente</button></td>
+                <td><button class="bton entregado"  (click)="orderManager(item.id, 'Entregado')" >Entregado</button></td>
+                <td> <button class="bton encamino" (click)="orderManager(item.id, 'En Camino')">En Camino</button></td>
+                <td> <button class="bton preparando" (click)="orderManager(item.id, 'Preparando')">Preparando</button></td>
+                <td><button class="bton pendiente"  (click)="orderManager(item.id, 'Pendiente')">Pendiente</button></td>
+
               </div>
 
               <td> <a (click)="deleteOrderById(item.id)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-x">

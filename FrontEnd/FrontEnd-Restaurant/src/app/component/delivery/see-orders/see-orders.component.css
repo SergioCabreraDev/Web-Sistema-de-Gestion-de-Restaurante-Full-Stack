@@ -139,3 +139,83 @@
 /* Ordenadores de sobremesa y portátiles */
 @media only screen and (min-width: 1224px) and (max-width: 1366px) {
 }
+
+.bton {
+  background-color: #FFFFFF;
+  border: 1px solid rgb(209,213,219);
+  border-radius: .5rem;
+  color: #111827;
+  font-family: ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: .875rem;
+  font-weight: 600;
+  line-height: 1.25rem;
+  padding: .75rem 1rem;
+  text-align: center;
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+
+
+
+.bton:focus {
+  outline: 2px solid rgba(0,0,0,0.1);
+  outline-offset: 2px;
+}
+
+.bton:focus-visible {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.info{
+  background-color: #181818;
+  color: white;
+  border: 1px;
+}
+.info:hover{
+  background-color: #222222;
+}
+
+.entregado{
+  background-color: #3fad29;
+  color: white;
+  border: 1px;
+}
+.entregado:hover{
+  background-color: #48c02f;
+}
+
+.preparando{
+  background-color: #e7a600;
+  color: white;
+  border: 1px;
+}
+.preparando:hover{
+  background-color: #FFB600;
+}
+
+.encamino{
+  background-color: rgb(6, 122, 218);
+  color: white;
+  border: 1px;
+}
+.encamino:hover{
+  background-color: rgb(5, 129, 230);
+}
+
+
+.pendiente{
+  background-color: rgb(216, 0, 0);
+  color: white;
+  border: 1px;
+}
+.pendiente:hover{
+  background-color: red;
+}

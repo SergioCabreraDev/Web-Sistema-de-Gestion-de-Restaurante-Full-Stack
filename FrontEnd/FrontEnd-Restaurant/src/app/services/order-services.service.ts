@@ -2,7 +2,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular
 import { Injectable } from '@angular/core';
 import { Order } from '../models/order';
 import { catchError, Observable, throwError } from 'rxjs';
-import { User } from '../models/User';
+import { URL_AWS, URL_LOCALHOST } from '../config/config';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,7 @@ export class OrderServicesService {
 
 
 
-  private urlOrder: string = 'http://localhost:8080/api/orders';  // URL base
+  private urlOrder: string = URL_LOCALHOST + '/api/orders';  // URL base
 
 
   constructor(private http: HttpClient) { }

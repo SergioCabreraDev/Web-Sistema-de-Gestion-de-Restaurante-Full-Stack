@@ -3,13 +3,14 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Booking } from '../models/Booking';
+import { URL_AWS, URL_LOCALHOST } from '../config/config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookingsServicesService {
 
-    private urlBookings: string = 'http://localhost:8080/api/bookings';  // URL base
+    private urlBookings: string = URL_LOCALHOST + '/api/bookings';  // URL base
 
     constructor(private http: HttpClient) { }
 

@@ -1,13 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { URL_AWS } from '../config/config';
+import { URL_LOCALHOST } from '../config/config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private url: string = 'http://localhost:8080/login';
+  private url: string = URL_LOCALHOST + '/login';
   private _token: string | undefined;
   private _user: any = {
     isAuth: false,

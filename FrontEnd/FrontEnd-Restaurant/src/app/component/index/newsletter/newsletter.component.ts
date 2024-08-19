@@ -22,7 +22,7 @@ constructor(private http: HttpClient){
 
 onSubmit(itemForm: any) {
   // Asegúrate de que this.email es un valor válido y está formateado correctamente
-  this.http.post('http://localhost:8080/api/newsletter',  this.email).subscribe({
+  this.http.post('http://ec2-13-60-208-201.eu-north-1.compute.amazonaws.com:8080/api/newsletter',  this.email).subscribe({
     next: (response) => {
       Swal.fire({
         icon: "success",

@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../../services/auth.service';
 import { User } from '../../../models/User';
 import Swal from 'sweetalert2';
+import { interval, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-see-bookings',
@@ -22,6 +23,8 @@ export class SeeBookingsComponent implements OnInit {
   today: string;
   valueInputDate: string;
   user!: User;
+  intervalSubscription: Subscription = new Subscription();
+  intervalTime: number = 3000;
 
   constructor(private service: BookingsServicesService, private authService: AuthService) {
     const todayDate = new Date();
@@ -33,16 +36,35 @@ export class SeeBookingsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    this.loadBookings();
+
+  }
+
+  loadBookings(){
     this.service.findAllBookings().subscribe(
       (data: Booking[]) => {
         this.bookings = data;
         this.filterBookings();
         this.deletePastBookings();
+        this.startIntervalRefresh()
+
       },
       (error) => {
         console.error('Error fetching bookings', error);
       }
     );
+  }
+
+  startIntervalRefresh(){
+    this.intervalSubscription.add(
+      interval(this.intervalTime).subscribe(()=>{
+        this.loadBookings();
+      })
+    )
+  }
+  ngOnDestroy(): void {
+    this.intervalSubscription.unsubscribe();
   }
 
   filterBookings(): void {

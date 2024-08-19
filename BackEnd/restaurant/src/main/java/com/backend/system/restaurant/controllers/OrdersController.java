@@ -29,7 +29,7 @@ import com.backend.system.restaurant.services.OrdersServices;
 
 import jakarta.validation.Valid;
 
-@CrossOrigin(originPatterns = { "http://localhost:4200" }) // Permite peticiones desde localhost:4200 (Angular frontend)
+@CrossOrigin(origins =  {"http://localhost:4200"}, originPatterns = {"*"}) // Permite peticiones desde localhost:4200 (Angular frontend)
 @RestController
 @RequestMapping("/api/orders")
 public class OrdersController {
