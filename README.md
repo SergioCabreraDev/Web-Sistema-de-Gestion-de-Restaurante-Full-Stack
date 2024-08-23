@@ -1,4 +1,6 @@
 URL del sitio web: http://angular-restaurant-app.s3-website.eu-north-1.amazonaws.com <br>
-Al crear una cuenta por defecto se asigna el rol "user", para entrar como adminitrados y probar todas las funcionalidades incia sesion con las siguientes credenciales: <br>
-email: admin@gmial.com <br>
-pass: admin1234 <br>
+Al crear una cuenta, por defecto se asigna el rol de "user". Para entrar como administrador y probar todas las funcionalidades, inicia sesión con las siguientes credenciales: <br>
+<br>
+Email: admin@gmail.com <br>
+Contraseña: admin1234 <br>
+
