@@ -7,7 +7,7 @@
     gap: 2rem;
     flex-direction: column;
     font-size: 25px;
-    background-image: url('../../../../assets/img/fondocarta.jpg');
+    background-image: url('https://angular-restaurant-app.s3.eu-north-1.amazonaws.com/assets/img/fondocarta.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

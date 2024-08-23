@@ -19,12 +19,13 @@ export class SeeOrdersComponent implements OnInit {
 
 
   orders: any[] = []
-  orderSelect: any = [];
+  orderSelect: any[] = [];
   orderFiltered: any [] = [];
   valueInputDate: any;
   today: string;
   pollingSubscription: Subscription = new Subscription();
-  pollingInterval: number = 3000; // Intervalo en milisegundos (5 segundos)
+  pollingInterval: number = 5000; // Intervalo en milisegundos (5 segundos)
+  total!: any;
 
 
 
@@ -77,8 +78,10 @@ export class SeeOrdersComponent implements OnInit {
   }
 
   transferOrder(_t16: any) {
-    
     this.orderSelect = _t16.products;
+    this.total = this.orderSelect.reduce((acc, item) => acc + item.price, 0).toFixed(2);
+  
+    console.log(this.total);
     console.log(this.orderSelect);
     }
 
@@ -99,27 +102,42 @@ export class SeeOrdersComponent implements OnInit {
     }
 
     deleteOrderById(id: any) {
-      this.service.remove(id).subscribe({
-        next: (response) =>{
-          this.orders.filter(item => item.id !== id);
-          console.warn("La reserva con id ("+ id + ") ha sido borrada");
-          Swal.fire({
-            icon: "success",
-            title: "Pedido Borrado",
-            showConfirmButton: false,
-            timer: 1500
-          });
-          this.loadOrders();
-        },
-        error: (error) =>{
-          Swal.fire({
-            icon: "error",
-            title: error,
-            showConfirmButton: false,
-            timer: 1500
-          });
+      Swal.fire({
+        title: "¿Estas Seguro?",
+        text: "¿Quieres eliminar el pedido?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Si, Eliminar!"
+        
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.service.remove(id).subscribe({
+            next: (response) =>{
+              this.orders.filter(item => item.id !== id);
+              console.warn("La reserva con id ("+ id + ") ha sido borrada");
+              Swal.fire({
+                icon: "success",
+                title: "Pedido Borrado",
+                showConfirmButton: false,
+                timer: 1500
+              });
+              this.loadOrders();
+            },
+            error: (error) =>{
+              Swal.fire({
+                icon: "error",
+                title: error,
+                showConfirmButton: false,
+                timer: 1500
+              });
+            }
+          })
         }
-      })
+      });
+
+     
       }
 
    

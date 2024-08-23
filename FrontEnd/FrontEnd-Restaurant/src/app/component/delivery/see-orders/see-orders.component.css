@@ -2,119 +2,7 @@
     margin: 20rem 5rem;
     margin-bottom: 40rem;
 }
-/* From Uiverse.io by adamgiebl */ 
-.cyberpunk-checkbox {
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    border: 2px solid #4bd030;
-    border-radius: 5px;
-    background-color: transparent;
-    display: inline-block;
-    position: relative;
-    margin-right: 10px;
-    cursor: pointer;
-  }
-  
-  .cyberpunk-checkbox:before {
-    content: "";
-    background-color: #4bd030;
-    display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    width: 10px;
-    height: 10px;
-    border-radius: 3px;
-    transition: all 0.3s ease-in-out;
-  }
-  
-  .cyberpunk-checkbox:checked:before {
-    transform: translate(-50%, -50%) scale(1);
-  }
-  
-  .cyberpunk-checkbox-label {
-    font-size: 18px;
-    color: #fff;
-    cursor: pointer;
-    user-select: none;
-    display: flex;
-    align-items: center;
-  }
 
- /* From Uiverse.io by vishnupprajapat */ 
-.checkbox-wrapper-46 input[type="checkbox"] {
-  display: none;
-  visibility: hidden;
-}
-
-.checkbox-wrapper-46 .cbx {
-  margin: auto;
-  -webkit-user-select: none;
-  user-select: none;
-  cursor: pointer;
-}
-.checkbox-wrapper-46 .cbx span {
-  display: inline-block;
-  vertical-align: middle;
-  transform: translate3d(0, 0, 0);
-}
-.checkbox-wrapper-46 .cbx span:first-child {
-  position: relative;
-  width: 18px;
-  height: 18px;
-  border-radius: 3px;
-  transform: scale(1);
-  vertical-align: middle;
-  border: 1px solid #9098a9;
-  transition: all 0.2s ease;
-}
-.checkbox-wrapper-46 .cbx span:first-child svg {
-  position: absolute;
-  top: 3px;
-  left: 2px;
-  fill: none;
-  stroke: #ffffff;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-dasharray: 16px;
-  stroke-dashoffset: 16px;
-  transition: all 0.3s ease;
-  transition-delay: 0.1s;
-  transform: translate3d(0, 0, 0);
-}
-.checkbox-wrapper-46 .cbx span:first-child:before {
-  content: "";
-  width: 100%;
-  height: 100%;
-  background: #506eec;
-  display: block;
-  transform: scale(0);
-  opacity: 1;
-  border-radius: 50%;
-}
-.checkbox-wrapper-46 .cbx span:last-child {
-  padding-left: 8px;
-}
-.checkbox-wrapper-46 .cbx:hover span:first-child {
-  border-color: #506eec;
-}
-
-.checkbox-wrapper-46 .inp-cbx:checked + .cbx span:first-child {
-  background: #506eec;
-  border-color: #506eec;
-  animation: wave-46 0.4s ease;
-}
-.checkbox-wrapper-46 .inp-cbx:checked + .cbx span:first-child svg {
-  stroke-dashoffset: 0;
-}
-.checkbox-wrapper-46 .inp-cbx:checked + .cbx span:first-child:before {
-  transform: scale(3.5);
-  opacity: 0;
-  transition: all 0.6s ease;
-}
 
 @keyframes wave-46 {
   50% {
@@ -149,7 +37,7 @@
   font-size: .875rem;
   font-weight: 600;
   line-height: 1.25rem;
-  padding: .75rem 1rem;
+  padding: .45rem 1rem;
   text-align: center;
   -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -178,6 +66,7 @@
   background-color: #181818;
   color: white;
   border: 1px;
+  
 }
 .info:hover{
   background-color: #222222;
@@ -219,3 +108,51 @@
 .pendiente:hover{
   background-color: red;
 }
+
+
+
+
+
+   /* Declara la fuente personalizada */
+   @font-face {
+    font-family: "1";
+    src: url("../../../../assets/fonts/PublicSans-Bold.ttf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  /* Declara la fuente personalizada */
+  @font-face {
+    font-family: "2";
+    src: url("../../../../assets/fonts/PublicSans-Medium.ttf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+  }
+  /* Declara la fuente personalizada */
+  @font-face {
+    font-family: "3";
+    src: url("../../../../assets/fonts/PublicSans-Light.ttf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+  }
+  /* Declara la fuente personalizada */
+  @font-face {
+    font-family: "4";
+    src: url("../../../../assets/fonts/PublicSans-ExtraBoldItalic.ttf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+  }
+  /* Declara la fuente personalizada */
+  @font-face {
+    font-family: "5";
+    src: url("../../../../assets/fonts/PublicSans-SemiBold.ttf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+  }
+  /* Declara la fuente personalizada */
+  @font-face {
+    font-family: "6";
+    src: url("../../../../assets/fonts/PublicSans-ExtraLight.ttf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+  }

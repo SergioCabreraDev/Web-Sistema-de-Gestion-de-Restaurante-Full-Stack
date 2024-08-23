@@ -15,7 +15,7 @@ import { URL_AWS, URL_LOCALHOST } from '../config/config';
   providedIn: 'root'
 })
 export class UserServicesService {
-  private urlUsers: string =  URL_LOCALHOST + '/api/users';  // URL base
+  private urlUsers: string =  URL_AWS + '/api/users';  // URL base
 
   constructor(private http: HttpClient) { }
 
@@ -47,13 +47,6 @@ export class UserServicesService {
   findUserByEmail(email: string): Observable<User> {
     const params = new HttpParams().set('email', email);
     return this.http.get<User>(`${this.urlUsers}/find`, { params }).pipe(
-      catchError(this.handleError)
-    );
-  }
-
-
-  sendEmailNewsletter(email: string): Observable<any> {
-    return this.http.post<any>('http://localhost:8080/api/newsletter', email).pipe(
       catchError(this.handleError)
     );
   }

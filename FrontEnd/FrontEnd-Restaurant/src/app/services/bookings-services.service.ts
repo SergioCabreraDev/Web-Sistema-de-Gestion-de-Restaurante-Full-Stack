@@ -10,7 +10,7 @@ import { URL_AWS, URL_LOCALHOST } from '../config/config';
 })
 export class BookingsServicesService {
 
-    private urlBookings: string = URL_LOCALHOST + '/api/bookings';  // URL base
+    private urlBookings: string = URL_AWS + '/api/bookings';  // URL base
 
     constructor(private http: HttpClient) { }
 

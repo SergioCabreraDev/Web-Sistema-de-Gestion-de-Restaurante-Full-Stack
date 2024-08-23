@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { error } from 'console';
 import { response } from 'express';
 import Swal from 'sweetalert2';
+import { URL_AWS, URL_LOCALHOST } from '../../../config/config';
 
 @Component({
   selector: 'newsletter',
@@ -22,7 +23,7 @@ constructor(private http: HttpClient){
 
 onSubmit(itemForm: any) {
   // Asegúrate de que this.email es un valor válido y está formateado correctamente
-  this.http.post('http://ec2-13-60-208-201.eu-north-1.compute.amazonaws.com:8080/api/newsletter',  this.email).subscribe({
+  this.http.post(URL_AWS + '/api/newsletter',  this.email).subscribe({
     next: (response) => {
       Swal.fire({
         icon: "success",

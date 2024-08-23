@@ -58,7 +58,7 @@
           <td></td>
           <td></td>
         }
-        <td>{{item.price}}€</td>
+        <td>{{item.price.toFixed(2)}} €</td>
         <td>
               <button (click)="removeFromCart(item.indice)" class="deleteButton">
                 <svg
@@ -99,7 +99,7 @@
         <td></td>
         <td></td>
         <td style="color: white; font-size: 14px; font-family: '4';">TOTAL:</td>
-        <td style="color: white; font-size: 14px; font-family: '4';">{{total}}€</td>
+        <td style="color: white; font-size: 14px; font-family: '4';">{{total.toFixed(2)}}€</td>
       </tr>
      
     </tfoot>

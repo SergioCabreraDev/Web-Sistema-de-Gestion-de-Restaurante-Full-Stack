@@ -1,6 +1,7 @@
 .margins{
-    margin: 15rem 5rem;
+    margin: 15rem 10rem;
     margin-bottom: 30rem;
+    font-size: large;
 }
 
 
@@ -11,10 +12,46 @@
 
     .margins{
         margin: 8rem 1rem;
-        margin-bottom: 10rem;
+        margin-bottom: 20rem;
     }
 }
 
 /* Ordenadores de sobremesa y portátiles */
 @media only screen and (min-width: 1224px) and (max-width: 1366px) {
 }
+
+    /* Declara la fuente personalizada */
+    @font-face {
+        font-family: "2";
+        src: url("../../../../assets/fonts/PublicSans-Medium.ttf") format("opentype");
+        font-weight: normal;
+        font-style: normal;
+      }
+      /* Declara la fuente personalizada */
+      @font-face {
+        font-family: "3";
+        src: url("../../../../assets/fonts/PublicSans-Light.ttf") format("opentype");
+        font-weight: normal;
+        font-style: normal;
+      }
+      /* Declara la fuente personalizada */
+      @font-face {
+        font-family: "4";
+        src: url("../../../../assets/fonts/PublicSans-ExtraBoldItalic.ttf") format("opentype");
+        font-weight: normal;
+        font-style: normal;
+      }
+      /* Declara la fuente personalizada */
+      @font-face {
+        font-family: "5";
+        src: url("../../../../assets/fonts/PublicSans-SemiBold.ttf") format("opentype");
+        font-weight: normal;
+        font-style: normal;
+      }
+      /* Declara la fuente personalizada */
+      @font-face {
+        font-family: "6";
+        src: url("../../../../assets/fonts/PublicSans-ExtraLight.ttf") format("opentype");
+        font-weight: normal;
+        font-style: normal;
+      }

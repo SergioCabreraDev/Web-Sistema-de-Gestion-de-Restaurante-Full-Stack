@@ -53,7 +53,8 @@ export const routes: Routes = [
     },
     {
         path: 'welcome',
-        component: UserWelcomeComponent
+        component: UserWelcomeComponent,
+        canActivate: [authGuard]
     },
     {
         path: 'delivery',

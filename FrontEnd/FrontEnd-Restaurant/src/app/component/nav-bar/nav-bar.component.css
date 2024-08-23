@@ -85,21 +85,6 @@
   .li:hover::after {
     width: 100%;
   }
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   
   @media (max-width: 1024px) {
@@ -159,7 +144,7 @@
       backdrop-filter: blur(20px);
     }
     .header .nav.activo {
-      height: 45vh;
+      height: 55vh;
       pointer-events: auto;
     }
     img{
@@ -177,17 +162,9 @@
     }
       /* Boton Iniciar Sesion */
     .c-button {
-      margin-left: 0rem;
-      color: #000;
-      font-weight: 700;
-      font-size: 16px;
-      text-decoration: none;
+
       padding: 0.7em 1.4em;
-      cursor: pointer;
-      display: inline-block;
-      vertical-align: middle;
-      position: relative;
-      z-index: 1;
+
     }
 
   }
@@ -373,26 +350,6 @@
     font-weight: normal;
     font-style: normal;
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   
 
   /* BOTON PEDIR */
@@ -657,17 +614,6 @@
     font-weight: normal;
     font-style: normal;
   }
-  
-
-
-
-
-
-
-
-
-
-
 
   /* Declara la fuente personalizada */
   @font-face {

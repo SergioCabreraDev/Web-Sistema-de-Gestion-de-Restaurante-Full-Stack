@@ -9,7 +9,7 @@
             <div class="card__content">
               <p class="card__title">{{item.name}}</p>
               <p class="card__description" style="color: white;">{{item.description}}</p>
-              <p class="card__description font-bold" style="color: white; font-family: '4';">{{item.price}} €</p>
+              <p class="card__description font-bold" style="color: white; font-family: '4';">  {{item.price.toFixed(2)}} €</p>
              
               <button class="btn btn-sm btn-warning" style="background-color: #FFB600; border: #FFB600;" (click)="transferInfo(item)" onclick="my_modal_4.showModal()">Añadir</button>
             </div>
@@ -24,8 +24,8 @@
 <dialog id="my_modal_4" class="modal">
   <div class="modal-box w-11/12 max-w-5xl">
     <h3 style="font-size: 25px; font-family: '4';" class="text-lg font-bold">{{selectedProduct?.name}}</h3>
-    <p style="font-size: 15px; font-family: '1';" class="py-4">{{selectedProduct?.description}}</p>
-    <p class="card__description font-bold" style="color: white;">{{selectedProduct?.price}} €</p>
+    <p style="font-size: 15px; font-family: '1'; color: white;"  class="py-4">{{selectedProduct?.description}}</p>
+    <p class="card__description font-bold" style="color: white;">{{selectedProduct?.price.toFixed(2)}} €</p>
     <div *ngIf="selectedProduct?.type == 'burgers'">
       <br>
       <label for="Guarnicion" style="font-family: '3'; color: white;">Punto de la Carne:</label>
@@ -74,7 +74,7 @@
         <div class="card__content">
           <p class="card__title">{{item.name}}</p>
           <p class="card__description" style="color: white;">{{item.description}}</p>
-          <p class="card__description" style="color: white; font-family: '4';">{{item.price}} €</p>
+          <p class="card__description" style="color: white; font-family: '4';">{{item.price.toFixed(2)}} €</p>
           <button class="btn btn-sm btn-warning" style="background-color: #FFB600; border: #FFB600;" (click)="transferInfo(item)" onclick="my_modal_4.showModal()">Añadir</button>
 
         </div>
@@ -94,7 +94,7 @@
         <div class="card__content">
           <p class="card__title">{{item.name}}</p>
           <p class="card__description" style="color: white;">{{item.description}}</p>
-          <p class="card__description" style="color: white; font-family: '4';">{{item.price}} €</p>
+          <p class="card__description" style="color: white; font-family: '4';"> {{item.price.toFixed(2)}} €</p>
           <button class="btn btn-sm btn-warning" style="background-color: #FFB600; border: #FFB600;" (click)="transferInfo(item)" onclick="my_modal_4.showModal()">Añadir</button>
         </div>
       </div>
@@ -113,7 +113,7 @@
     <p class="card__title">{{item.name}}</p>
       <div class="card__content">
       <p class="card__title">{{item.name}}</p>
-        <p class="card__description" style="color: white; font-family: '4';">{{item.price}} €</p>
+        <p class="card__description" style="color: white; font-family: '4';">{{item.price.toFixed(2)}} €</p>
         <button class="btn btn-sm btn-warning" style="background-color: #FFB600; border: #FFB600;" (click)="transferInfo(item)" onclick="my_modal_4.showModal()">Añadir</button>
       </div>
     </div>

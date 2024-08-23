@@ -93,6 +93,9 @@ form {
         margin-bottom: 55rem;
         font-size: large;
       }
+      form .submit {
+        justify-content: center;
+      }
 
     }
 
@@ -102,6 +105,9 @@ form {
       form{       
         margin: 15rem 1rem;
         margin-bottom: 20rem;
+      }
+      form .submit {
+        justify-content: center;
       }
 
 

@@ -79,6 +79,10 @@ form {
 
 /* Ordenadores de sobremesa y portátiles */
 @media only screen and (min-width: 1224px) and (max-width: 1366px) {
+
+  .margins{
+    margin-bottom: 25rem;
+  }
 }
 
 

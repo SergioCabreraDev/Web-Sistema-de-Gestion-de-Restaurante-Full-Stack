@@ -11,7 +11,7 @@ export class OrderServicesService {
 
 
 
-  private urlOrder: string = URL_LOCALHOST + '/api/orders';  // URL base
+  private urlOrder: string = URL_AWS + '/api/orders';  // URL base
 
 
   constructor(private http: HttpClient) { }

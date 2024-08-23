@@ -22,11 +22,15 @@ export class UserWelcomeComponent implements OnInit, OnDestroy {
   pollingSubscription: Subscription = new Subscription();
   pollingInterval: number = 3000; // Intervalo en milisegundos (5 segundos)
 
+  
+
   constructor(
     private authService: AuthService,
     private userService: UserServicesService,
     private orderService: OrderServicesService
-  ) { }
+  ) {
+    this.userDetails = new User();
+   }
 
   ngOnInit(): void {
     this.getInfoUser();

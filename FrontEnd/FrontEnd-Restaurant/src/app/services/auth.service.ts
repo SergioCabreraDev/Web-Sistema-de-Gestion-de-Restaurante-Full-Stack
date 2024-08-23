@@ -9,7 +9,7 @@ import { URL_LOCALHOST } from '../config/config';
 })
 export class AuthService {
 
-  private url: string = URL_LOCALHOST + '/login';
+  private url: string = URL_AWS + '/login';
   private _token: string | undefined;
   private _user: any = {
     isAuth: false,
